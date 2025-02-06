@@ -12,6 +12,10 @@
         'brand-accent-brown': '#502F18',
         'brand-accent-warm': '#EEBA00',
         'brand-accent-light': '#FFE995',
+      },
+      fontFamily: {
+        'Tienne': ['Tienne', 'Times New Roman', 'Times', 'serif', 'system-ui'],
+        'Inter': ['Inter', 'Verdana', 'Geneva', 'Tahoma', 'sans-serif', 'system-ui']
       }
     },
   },
