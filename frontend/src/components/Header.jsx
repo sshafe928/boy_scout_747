@@ -62,7 +62,7 @@ const Header = () => {
                                             name="search"
                                             id="search"
                                             placeholder="Search..."
-                                            className="w-full px-4 py-2 rounded-full border border-white focus:outline-none placeholder:font-Inter placeholder:text-white bg-black"
+                                            className="w-full text-white px-4 py-2 rounded-full border border-white focus:outline-none placeholder:font-Inter placeholder:text-white bg-black"
                                             onChange={(e) => handleSearch(e)}
                                         />
                                         <IoMdSearch className="absolute right-4 text-white" size={20} />
