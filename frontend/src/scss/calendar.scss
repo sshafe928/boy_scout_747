@@ -21,8 +21,8 @@ $event-border-radius: 5px !default;
 $event-padding: 2px 5px !default;
 $event-zindex: 4 !default;
 
-$btn-color: white;
-$btn-bg: orange;
+$btn-color: black;
+$btn-bg: white;
 $btn-border: #ccc !default;
 
 $current-time-color: #74ad31 !default;
@@ -30,6 +30,7 @@ $current-time-color: #74ad31 !default;
 $rbc-css-prefix: rbc-i !default;
 
 $today-highlight-bg: #eaf6ff !default;
+
 
 @import "../../node_modules/react-big-calendar/lib/sass/styles";
 

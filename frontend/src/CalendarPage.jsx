@@ -1,7 +1,7 @@
 import Header from './components/Header';
 import {Calendar, momentLocalizer} from "react-big-calendar"
 import moment from "moment"
-import "./scss/calendar.scss"
+import "./scss/calendar.css"
 
 // import myEventsList from "./data/events.js"
 
