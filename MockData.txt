@@ -1,0 +1,9 @@
+  {
+    "id": "1",
+    "title": "Ancient Temple",
+    "description": "A centuries-old temple surrounded by lush greenery.",
+    "image_url": "https://res.cloudinary.com/demo/image/upload/v1700000000/gallery/ancient_temple.jpg",
+    "uploaded_at": "2025-01-31T18:10:00Z",
+    "tags": ["temple", "history", "architecture", "culture"],
+    "uploader": "William Anderson"
+  },
