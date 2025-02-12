@@ -2,6 +2,7 @@ const User = require('../models/users');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+// creates a new user on the mongoDB
 const registerUser = async (req, res) => {
     const { username, email, password } = req.body;
     const sanitizedPassword = password.trim();
@@ -25,6 +26,7 @@ const registerUser = async (req, res) => {
     }
 };
 
+// Checks if the given user exists
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
     const sanitizedPassword = password.trim();
@@ -60,6 +62,7 @@ const loginUser = async (req, res) => {
     }
 };
 
+// deletes a user
 const deleteUser = async (req, res) => {
     try {
         await User.findByIdAndDelete(req.params.id);
@@ -69,6 +72,7 @@ const deleteUser = async (req, res) => {
     }
 };
 
+// exports the functions to be usable elsewhere
 module.exports = { registerUser, loginUser, deleteUser };
 
 // 
