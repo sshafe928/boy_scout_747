@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Connects the file to mongoDB and finds photos in the grid
 const photoSchema = new mongoose.Schema({
   id: { type: String, required: true },
   title: { type: String, required: true },
