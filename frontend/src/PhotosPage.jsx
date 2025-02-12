@@ -1,13 +1,14 @@
+import React from 'react';
 import Header from './components/Header';
-import Header from './components/Gallery'
+import Gallery from './components/Gallery';
 
 function Home() {
-    return (
-        <>
-            <Header/>
-            <Gallery/>
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <Gallery />
+    </>
+  );
 }
 
 export default Home;
