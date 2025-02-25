@@ -100,7 +100,6 @@ const Header = () => {
                         {/* Links */}
                         <div className='flex justify-around gap-8 w-1/3 relative right-14'>
                             <NavLink title={'HOME'} href={'/'} />
-                            <NavLink title={"EAGLES' NEST"} href={'/eaglesnest'} />
                             <NavLink title={'NEWS'} href={'/news'} />
                         </div>
                     </nav>
@@ -108,7 +107,7 @@ const Header = () => {
                     {/* Bottom Links */}
                     <div className="bg-brand-primary-brown flex justify-center items-center gap-4 h-12 text-sm">
                         <NavLink title={'Calendar'} href={'/calendar'} />
-                        <NavLink title={'Events'} href={'/events'} />
+                        <NavLink title={'News'} href={'/news'} />
                         <NavLink title={'Photos'} href={'/photos'} />
                         <NavLink title={'Troop PLC'} href={'/troop-plc'} />
                         <NavLink title={'Eagle Scout'} href={'/eagle-scout'} />
