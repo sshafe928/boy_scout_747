@@ -16,6 +16,9 @@
       fontFamily: {
         'Tienne': ['Tienne', 'Times New Roman', 'Times', 'serif', 'system-ui'],
         'Inter': ['Inter', 'Verdana', 'Geneva', 'Tahoma', 'sans-serif', 'system-ui']
+      },
+      boxShadow: {
+        'defaultShadow': '0, 4, 4, 0, rgba(0, 0, 0, 0.25)'
       }
     },
   },
