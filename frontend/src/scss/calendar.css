@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tienne:wght@400;700;900&display=swap");
+
 .rbc-btn {
   color: inherit;
   font: inherit;
@@ -27,6 +29,7 @@ button.rbc-input::-moz-focus-inner {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  font-family: "Tienne";
 }
 
 .rbc-m-b-negative-3 {
@@ -132,7 +135,7 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-today {
-  background-color: #eaf6ff;
+  background-color: #ccc;
 }
 
 .rbc-toolbar {
