@@ -100,6 +100,7 @@ const Header = () => {
                         {/* Links */}
                         <div className='flex justify-around gap-8 w-1/3 relative right-14'>
                             <NavLink title={'HOME'} href={'/'} />
+                            <NavLink title={"EAGLES' NEST"} href={'/eagles-nest'} />
                             <NavLink title={'NEWS'} href={'/news'} />
                         </div>
                     </nav>
