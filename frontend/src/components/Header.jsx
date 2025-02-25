@@ -72,9 +72,11 @@ const Header = () => {
                                 </div>
 
                                 <nav className="flex flex-col items-center pt-8 space-y-20 font-Tienne">
+                                    <Link to="/" className="text-gray-800 text-lg font-medium">Home</Link>
                                     <Link to="/calendar" className="text-gray-800 text-lg font-medium">Calendar</Link>
-                                    <Link to="/events" className="text-gray-800 text-lg font-medium">Events</Link>
+                                    <Link to="/news" className="text-gray-800 text-lg font-medium">News</Link>
                                     <Link to="/photos" className="text-gray-800 text-lg font-medium">Photos</Link>
+                                    <Link to="/eagles-nest" className="text-gray-800 text-lg font-medium">Eagles Nest</Link>
                                     <Link to="/resources" className="text-gray-800 text-lg font-medium">Resources</Link>
                                 </nav>
                             </div>
@@ -95,7 +97,7 @@ const Header = () => {
                             <IoMdSearch className='search-icon' onChange={(e) => handleSearch(e)} />
                         </div>
                         {/* Links */}
-                        <div className='flex justify-around gap-8 w-1/3 relative right-14'>
+                        <div className='flex justify-around gap-8 w-1/3 relative right-14 '>
                             <NavLink title={'HOME'} href={'/'} />
                             <NavLink title={"EAGLES' NEST"} href={'/eagles-nest'} />
                             <NavLink title={'NEWS'} href={'/news'} />
@@ -103,13 +105,10 @@ const Header = () => {
                     </nav>
                     <div className="h-2 bg-brand-primary-gold" />
                     {/* Bottom Links */}
-                    <div className="bg-brand-primary-brown flex justify-center items-center gap-4 h-12 text-sm">
+                    <div className="bg-brand-primary-brown flex justify-center space-x-9 items-center gap-4 h-12 text-md">
                         <NavLink title={'Calendar'} href={'/calendar'} />
                         <NavLink title={'News'} href={'/news'} />
                         <NavLink title={'Photos'} href={'/photos'} />
-                        <NavLink title={'Troop PLC'} href={'/troop-plc'} />
-                        <NavLink title={'Eagle Scout'} href={'/eagle-scout'} />
-                        <NavLink title={'Scoutmaster'} href={'/scoutmaster'} />
                         <NavLink title={'Resources'} href={'/resources'} />
                     </div>
                 </header>

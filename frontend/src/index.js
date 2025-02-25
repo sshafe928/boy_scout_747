@@ -7,6 +7,7 @@ import Photos from './PhotosPage';
 import News from './NewsPage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import EaglesNest from './EaglesNest';
+import ResourcesPage from './ResourcesPage';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home />},
@@ -14,6 +15,8 @@ const router = createBrowserRouter([
   { path: '/photos', element: <Photos />},
   { path: '/news', element: <News />},
   { path: '/eagles-nest', element: <EaglesNest/>},
+  { path: '/resources', element: <ResourcesPage />},
+
 ])
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
