@@ -75,9 +75,6 @@ const Header = () => {
                                     <Link to="/calendar" className="text-gray-800 text-lg font-medium">Calendar</Link>
                                     <Link to="/events" className="text-gray-800 text-lg font-medium">Events</Link>
                                     <Link to="/photos" className="text-gray-800 text-lg font-medium">Photos</Link>
-                                    <Link to="/troop-plc" className="text-gray-800 text-lg font-medium">Troop PLC</Link>
-                                    <Link to="/eagle-scout" className="text-gray-800 text-lg font-medium">Eagle Scout</Link>
-                                    <Link to="/scoutmaster" className="text-gray-800 text-lg font-medium">Scoutmaster</Link>
                                     <Link to="/resources" className="text-gray-800 text-lg font-medium">Resources</Link>
                                 </nav>
                             </div>
