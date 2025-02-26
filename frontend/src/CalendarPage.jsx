@@ -4,6 +4,7 @@ import moment from "moment"
 import "./scss/calendar.css"
 
 
+
 import myEventsList from "./data/events.js"
 
 const localizer = momentLocalizer(moment)
@@ -15,9 +16,9 @@ function BigCalendar() {
         <body class="overflow-x-hidden bg-brand-primary-gold">
           <Header/>
           <div class="w-screen">
-            <div className='w-[90vw] h-[50vw] bg-white m-auto mt-[4vh] p-1'>
-              <div className='w-[89vw] h-[49vw]'>
-                <Calendar
+            <div className='lg:w-[90vw] w-[80vw] h-[60vh] bg-white m-auto mt-[4vh] p-1'>
+              <div className='lg:w-[89vw] w-[79vw] h-[59vh]'>
+                <Calendar 
                 localizer={localizer}
                 events={myEventsList}
                 startAccessor="start"

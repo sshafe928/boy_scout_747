@@ -1,5 +1,8 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tienne:wght@400;700;900&display=swap");
+.rbc-calendar {
+  font-family: Inter;
+}
 
 .rbc-btn {
   color: inherit;
@@ -29,7 +32,6 @@ button.rbc-input::-moz-focus-inner {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  font-family: "Tienne";
 }
 
 .rbc-m-b-negative-3 {
@@ -135,7 +137,7 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-today {
-  background-color: #ccc;
+  background-color: #dbe8ff;
 }
 
 .rbc-toolbar {
@@ -235,7 +237,7 @@ button.rbc-input::-moz-focus-inner {
   box-shadow: none;
   margin: 0;
   padding: 2px 5px;
-  background-color: #3174ad;
+  background-color: #25522e;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
@@ -247,7 +249,7 @@ button.rbc-input::-moz-focus-inner {
   pointer-events: none;
 }
 .rbc-event.rbc-selected, .rbc-day-slot .rbc-selected.rbc-background-event {
-  background-color: #265985;
+  background-color: #152f1a;
 }
 .rbc-event:focus, .rbc-day-slot .rbc-background-event:focus {
   outline: 5px auto #3b99fc;
@@ -300,10 +302,10 @@ button.rbc-input::-moz-focus-inner {
   font-size: 85%;
   height: auto;
   line-height: normal;
-  color: #3174ad;
+  color: #25522e;
 }
 .rbc-show-more:hover, .rbc-show-more:focus {
-  color: #265985;
+  color: #152f1a;
 }
 
 .rbc-month-view {

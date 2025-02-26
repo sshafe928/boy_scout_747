@@ -29,9 +29,9 @@ const events = [
     },
     {
       title: "Hackathon",
-      start: new Date(2025, 1, 20), // February 20th
-      end: new Date(2025, 1, 25),   // February 25th
-      allDay: true,
+      start: new Date(2025, 1, 26, 9, 0), // February 20th
+      end: new Date(2025, 1, 26, 18, 0),   // February 25th
+      allDay: false,
       resource: { teams: ["DevOps", "AI", "Frontend"] },
     },
   ];
