@@ -8,7 +8,7 @@ const ResourcesPage = () => {
         <>
         <Header/>
         <Resource/>
-        {/* <Footer/> */}
+        <Footer/>
         </>
     )
 }
