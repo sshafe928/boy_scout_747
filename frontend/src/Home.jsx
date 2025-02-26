@@ -8,10 +8,10 @@ function Home() {
     return (
         <>
           <Header/>
+          <HomeSection1/>
           <HomeSection2/>
           <HomeSection3/>
-          <div className="h-[150vh]"></div>
-          <HomeSection1/>
+          {/* <div className="h-[150vh]"></div> */}
           <Footer/>
         </>
     );
