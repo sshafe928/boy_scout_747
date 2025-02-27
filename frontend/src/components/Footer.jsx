@@ -22,9 +22,9 @@ const Footer = () => {
             {isMobile ? (
                 <footer className="font-Inter w-screen">
                     {/* Upper Section */}
-                    <div className="bg-brand-primary-black justify-center text-center pt-6 shadow-defaultShadow">
+                    <div className="flex flex-col bg-brand-primary-black justify-center text-center pt-6 shadow-xl md:flex-row md:justify-around md:pt-12 md:pb-4">
                         <h1 className="text-brand-primary-gold font-bold text-3xl">TROOP 747</h1>
-                        <hr className="h-0.5 border-none bg-brand-primary-gold w-4/5 mx-auto mb-4" />
+                        <hr className="h-0.5 border-none bg-brand-primary-gold w-4/5 mx-auto mb-4 md:hidden" />
                         <div className="flex flex-wrap text-brand-primary-gold gap-8 w-4/5 mx-auto justify-center font-bold">
                             <Link to="/" className="text-gray-800 text-lg font-medium">Home</Link>
                             <Link to="/eagles-nest" className="text-gray-800 text-lg font-medium">Eagle's Nest</Link>
