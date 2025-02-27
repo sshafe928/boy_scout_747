@@ -1,15 +1,13 @@
 import Header from './components/Header';
-import {Calendar, momentLocalizer} from "react-big-calendar"
-import moment from "moment"
-import "./scss/calendar.css"
+import {Calendar, momentLocalizer} from "react-big-calendar";
+import moment from "moment";
+import "./scss/calendar.css";
 import React, { useEffect, useState, useRef } from 'react';
 import Footer from './components/Footer';
 
+import myEventsList from "./data/events.js";
 
-
-import myEventsList from "./data/events.js"
-
-const localizer = momentLocalizer(moment)
+const localizer = momentLocalizer(moment);
 
 
 function BigCalendar() {
