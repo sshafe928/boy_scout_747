@@ -2,6 +2,7 @@ import Header from './components/Header';
 import {Calendar, momentLocalizer} from "react-big-calendar"
 import moment from "moment"
 import "./scss/calendar.css"
+import React, { useEffect, useState, useRef } from 'react';
 
 
 
@@ -11,9 +12,33 @@ const localizer = momentLocalizer(moment)
 
 
 function BigCalendar() {
+  // change this to be useRef
+  const [formattedEvents, setFormattedEvents] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/events')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setFormattedEvents = data.data.map((event) => ({
+            title: event.title,
+            type: event.type,
+            description: event.description,
+            location: event.location,
+            start: event.start,
+            end: event.end,
+          }));
+        } else {
+          console.error('Failed to fetch photos:', data.message);
+        }
+      })
+      .catch((err) => console.error('Error fetching photos:', err));
+  }, []);
+
     return (
         <>
         <body class="overflow-x-hidden bg-brand-primary-gold">
+          <h1>{formattedEvents.title} hello</h1>
           <Header/>
           <div class="w-screen">
             <div className='lg:w-[90vw] w-[80vw] h-[60vh] bg-white m-auto mt-[4vh] p-1'>
