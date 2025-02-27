@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Logo from '../assets/Logo.png';
 
 const slides = [
     {
@@ -12,24 +13,17 @@ const slides = [
     {
         title: "SCOUTING IS",
         subtitle: "Building tomorrow's leaders",
-        bgImage: "https://i.redd.it/0bbvehrv9m3c1.jpg",
+        bgImage: "https://imagesarizona.com/wp-content/uploads/2017/06/Riding-off-into-the-Sunset.jpg",
         titleColor: "text-white",
-        subtitleGradient: "from-[#ffcb00] to-[#150a05]"
+        subtitleGradient: "from-[#502402] to-[#150a05]"
     },
     {
         title: "SCOUTING IS",
         subtitle: "Making lasting friendships",
         bgImage: "https://images.fineartamerica.com/images-medium-large-5/golden-arizona-sunset-bryan-allen.jpg",
         titleColor: "text-amber-50",
-        subtitleGradient: "from-[#ffffff] to-[#351800]"
+        subtitleGradient: "from-amber-50 to-[#351800]"
     },
-    {
-        title: "SCOUTING IS",
-        subtitle: "Learning valuable skills",
-        bgImage: "/api/placeholder/1920/1080",
-        titleColor: "text-gray-100",
-        subtitleGradient: "from-purple-400 via-pink-500 to-red-500"
-    }
 ];
 
 const ScoutingSlideshow = () => {
@@ -121,6 +115,7 @@ const ScoutingSlideshow = () => {
                     </div>
                 </div>
             ) : (
+                <>
                 <div className="relative w-full h-[40rem] overflow-hidden -lg shadow-xl">
                     {slides.map((slide, index) => (
                         <div
@@ -139,10 +134,10 @@ const ScoutingSlideshow = () => {
                                 
                                 {/* Content */}
                                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                    <h2 className={`text-[8vw] font-bold mb-4 tracking-wider ${slide.titleColor} mb-[11rem]`}>
+                                    <h2 className={`text-9xl md:text-9xl font-bold mb-4 tracking-wider ${slide.titleColor}`}>
                                         {slide.title}
                                     </h2>
-                                    <p className={`text-[4vw] font-bold italic bg-gradient-to-r ${slide.subtitleGradient} bg-clip-text text-transparent`}>
+                                    <p className={`text-7xl md:text-7xl font-bold italic bg-gradient-to-r top-20 relative ${slide.subtitleGradient} bg-clip-text text-transparent`}>
                                         {slide.subtitle}
                                     </p>
                                 </div>
@@ -176,6 +171,30 @@ const ScoutingSlideshow = () => {
                         ))}
                     </div>
                 </div>
+                <section className='flex flex-col'>
+                    <header className='flex'>
+                        <img src={Logo} alt="logo" />
+                        <h1>TROOP 747</h1>
+                    </header>
+                    <div className='flex'>
+                        <div >
+                            <h1 className='font-bold'>What is the Troop 747 Program?</h1>
+                            <p>The traditional Scouting program, Troop 747 follows Scouts BSA, where youth develop outdoor survival skills, self-confidence, and ethics through youth planned activities with increased attention to service, community engagement, and leadership. </p>
+                            <h1 className='font-bold'>What Will I do in Troop 747?</h1>
+                            <p>Troop 747 is where youth explore their interests and develop skills by participating in outdoor activities like hiking, camping, and canoeing. Scouts earn merit badges along the journey and work towards achieving Scouting’s highest rank—Eagle Scout. </p>
+                            <h1 className='font-bold'>How Often Does Troop 747 Meet?</h1>
+                            <p>Troop 747 scouts meet every Tuesday.</p>
+                        </div>
+                        <div>
+                            <h1 className='font-bold'>Who Runs Troop 747?</h1>
+                            <p>Elected youth lead their troop and run the meetings at the guidance of the Scoutmaster and other adult leaders. Unlike Cub Scouts, Scouts BSA is a youth program planned mainly by the Scouts, not the parents. </p>
+                            <h1 className='font-bold'>Why Should I Join Troop 747?</h1>
+                            <p>Scouts BSA prepares youth to make ethical and moral choices over their lifetimes by instilling the values of the Scout Oath and Law. Throughout their time in Scouting, Scouts learn the value of hard work and experience the thrill of seeing it pay off. </p>
+                            <button>SIGN UP</button>
+                        </div>
+                    </div>
+                </section>
+                </>
             )}
         </>
     );
