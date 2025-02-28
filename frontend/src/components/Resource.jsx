@@ -10,7 +10,7 @@ export default function InfoDropdown() {
 
   return (
     <>
-    <div style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}} className="w-[100vw] h-[255vh] h-auto pt-[5rem]">
+    <div style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}} className="w-[100vw] h-[255vh] md:h-auto pt-[5rem]">
 
     {/* Contains all of the resources */}
 
@@ -77,10 +77,10 @@ export default function InfoDropdown() {
           <div className="w-[80vw] h-[15vh] place-self-center bg-white border-4 mb-[2rem] border-brand-primary-gold md:w-[30vw] md:h-[20vh]"></div>
           <div className="w-[80vw] h-[15vh] place-self-center bg-white border-4 mb-[2rem] border-brand-primary-gold md:w-[30vw] md:h-[20vh]"></div>
         </div>
-        <div className="bg-white border-brand-primary-gold border-4 w-[80vw] h-[35vh] flex justify-center items-center ml-[2.2rem]">
+        <div className="bg-white border-brand-primary-gold border-4 w-[80vw] h-[35vh] flex justify-center items-center ml-[2.2rem] md:hidden">
             <div className="w-[85vw] h-[7vh] bg-[#6B5A18] place-self-center mt-[42.2vh] md:hidden">there will be text here</div>
             </div>
-            <div className="bg-[#D9D9D9] w-[80vw] h-[7vh] mt-[6rem] mb-[2rem] place-self-center">Image description</div>
+            <div className="bg-[#D9D9D9] w-[80vw] h-[7vh] mt-[6rem] mb-[2rem] place-self-center md:hidden">Image description</div>
         </div>
     </div>
     </>
