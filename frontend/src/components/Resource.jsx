@@ -10,7 +10,7 @@ export default function InfoDropdown() {
 
   return (
     <>
-    <div style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}} className="w-[100vw] h-auto pt-[5rem]">
+    <div style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}} className="w-[100vw] h-[255vh] h-auto pt-[5rem]">
 
     {/* Contains all of the resources */}
 
@@ -25,7 +25,7 @@ export default function InfoDropdown() {
       <div className="ml-[1.4rem] columns-1 md:ml-16">
 
       <div className="mb-[1rem]">
-        <button onClick={() => toggleDropdown("permissionSlips")} className="w-[75vw] h-[7vh] uppercase text-white text-[1.3rem] text-center bg-brand-primary-gold md:w-[40vw] md:text-[1.5rem]md:bg-brand-accent-light">Permission Slips ▼</button>
+        <button onClick={() => toggleDropdown("permissionSlips")} className="w-[75vw] h-[7vh] uppercase text-white text-[1.3rem] text-center bg-brand-primary-gold md:w-[40vw] md:text-[1.5rem] md:bg-brand-accent-light">Permission Slips ▼</button>
 
         {openDropdown === "permissionSlips" && (
           <div>
@@ -65,18 +65,22 @@ export default function InfoDropdown() {
         {/* bottom half of the page */}
         <div className=" object-contain h-auto md:columns-2">
           {/* The hover image thing??? Im not too sure */}
-          <div className="bg-white w-[80vw] h-[35vh] flex justify-center items-center ml-[2.2rem] md:w-[40vw] md:h-[60vh] md:ml-[10rem]">
+          <div className="hidden md:bg-white md:flex md:justify-center md:items-center ml-[2.2rem] md:border-none md:w-[40vw] md:h-[60vh] md: mt-0 md:ml-[10rem]">
             <div className=" items-center hover:scale-110 duration-300 ease-in-out md:bg-[#D9D9D9] md:w-[30vw] md:h-[45vh]">
               {/* text bar??? */}
-              <p className=" text-white w-[25vw] h-[7vh] opacity-100 flex justify-self-center mt-[18rem] hover:opacity-100 duration-300 ease-in-out">There will be text here</p>
+              <p className=" md:text-white md:w-[25vw] md:h-[7vh] md:opacity-100 md:flex justify-self-center mt-[18rem] md:border-none md:hover:opacity-100 duration-300 ease-in-out"></p>
             </div>
           </div>
 
-        <div className="mt-[-10rem] md:mt-[0]">
+        <div className=" mt-[-18rem] md:mt-[-10rem] md:mt-[0]">
           <div className="w-[80vw] h-[15vh] place-self-center bg-white border-4 mt-[20rem] mb-[2rem] border-brand-primary-gold md:w-[30vw] md:h-[20vh]"></div>
           <div className="w-[80vw] h-[15vh] place-self-center bg-white border-4 mb-[2rem] border-brand-primary-gold md:w-[30vw] md:h-[20vh]"></div>
           <div className="w-[80vw] h-[15vh] place-self-center bg-white border-4 mb-[2rem] border-brand-primary-gold md:w-[30vw] md:h-[20vh]"></div>
         </div>
+        <div className="bg-white border-brand-primary-gold border-4 w-[80vw] h-[35vh] flex justify-center items-center ml-[2.2rem]">
+            <div className="w-[85vw] h-[7vh] bg-[#6B5A18] place-self-center mt-[42.2vh] md:hidden">there will be text here</div>
+            </div>
+            <div className="bg-[#D9D9D9] w-[80vw] h-[7vh] mt-[6rem] mb-[2rem] place-self-center">Image description</div>
         </div>
     </div>
     </>
