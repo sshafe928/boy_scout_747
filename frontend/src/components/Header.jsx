@@ -1,20 +1,48 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IoMdSearch } from "react-icons/io";
 import { X } from "lucide-react";
 import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.png';
 
 const Header = () => {
+    // State management
     const [menuOpen, setMenuOpen] = useState(false);
+    const [size, setSize] = useState({
+        width: undefined,
+        height: undefined
+    });
+
+    // Handle window resize
+    useEffect(() => {
+        const handleResize = () => {
+            setSize({
+                width: window.innerWidth,
+                height: window.innerHeight
+            });
+        };
+        
+        handleResize(); // Initialize with current dimensions
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup function
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Close mobile menu when screen size changes to desktop
+    useEffect(() => {
+        if (size.width > 768 && menuOpen) {
+            setMenuOpen(false);
+        }
+    }, [size.width, menuOpen]);
 
     const handleSearch = () => {
         // Add search functionality
-    }
+    };
 
     return (
         <header className="relative">
             {/* Mobile Header */}
-            <nav className="flex items-center justify-between h-24 bg-brand-primary-black text-white px-4 md:shadow-xl">
+            <nav className="flex items-center justify-between h-24 bg-brand-primary-black text-white px-4 md:shadow-xl z-30 relative">
                 <div className="flex items-center gap-2 md:gap-4 md:ml-4">
                     <img src={Logo} alt="logo" className="size-16 bg-white rounded-full"/>
                     <h1 className="text-2xl md:text-3xl">TROOP 747</h1>
@@ -80,47 +108,58 @@ const Header = () => {
                 </div>
             </div>
 
-            {/* Mobile Menu - Full screen overlay */}
-            {/* Add transition */}
-            {menuOpen && (
-                <div className="fixed inset-0 bg-white z-50 md:hidden">
-                    <div className="flex flex-col h-full">
-                        <div className="flex justify-end p-4">
-                            <button
-                                onClick={() => setMenuOpen(false)}
-                                className="text-black"
-                            >
-                                <X size={24} />
-                            </button>
-                        </div>
-                        
-                        <div className="px-4 py-2">
-                            <div className="relative flex items-center">
-                                <input
-                                    type="search"
-                                    name="search"
-                                    id="search"
-                                    placeholder="Search..."
-                                    className="w-full text-white px-4 py-2 rounded-full border border-white focus:outline-none placeholder:font-Inter placeholder:text-white bg-black"
-                                    onChange={(e) => handleSearch(e)}
-                                />
-                                <IoMdSearch className="absolute right-4 text-white" size={20} />
-                            </div>
-                        </div>
+            {/* Mobile Menu - Slide-in animation instead of overlay */}
+            <div className={`
+                fixed top-0 left-full w-full h-screen 
+                flex flex-col justify-center items-center text-center
+                bg-brand-primary-black 
+                translate-x-0 transition-transform duration-300 ease-linear z-40
+                md:hidden
+                ${menuOpen ? 'translate-x-neg-full' : ''}
+            `}>
+                {/* Close Button */}
+                <div className="flex w-full justify-end p-4">
+                    <button
+                        onClick={() => setMenuOpen(false)}
+                        className="text-white"
+                    >
+                        <X size={24} />
+                    </button>
+                </div>
+                
+                {/* Logo */}
+                <div className="flex flex-col items-center gap-2 mb-4">
+                    <img src={Logo} alt="logo" className="w-32 h-32 rounded-full" />
+                    <h1 className="text-xl font-bold text-brand-primary-gold">TROOP 747</h1>
+                </div>
 
-                        <nav className="flex flex-col items-center pt-8 space-y-20 font-Tienne">
-                            <Link to="/" className="text-gray-800 text-lg font-medium">Home</Link>
-                            <Link to="/calendar" className="text-gray-800 text-lg font-medium">Calendar</Link>
-                            <Link to="/news" className="text-gray-800 text-lg font-medium">News</Link>
-                            <Link to="/photos" className="text-gray-800 text-lg font-medium">Photos</Link>
-                            <Link to="/eagles-nest" className="text-gray-800 text-lg font-medium">Eagles Nest</Link>
-                            <Link to="/resources" className="text-gray-800 text-lg font-medium">Resources</Link>
-                        </nav>
+                {/* Search Bar */}
+                <div className="px-4 py-2">
+                    <div className="relative flex items-center">
+                        <input
+                            type="search"
+                            name="search"
+                            id="search"
+                            placeholder="Search..."
+                            className="w-full text-white px-4 py-2 rounded-full border border-white focus:outline-none placeholder:font-Inter placeholder:text-white bg-black"
+                            onChange={(e) => handleSearch(e)}
+                        />
+                        <IoMdSearch className="absolute right-4 text-white" size={20} />
                     </div>
                 </div>
-            )}
+
+                {/* Nav Items */}
+                <nav className="flex flex-col items-center pt-8 space-y-20 font-Tienne font-medium text-lg text-brand-primary-gold mb-8">
+                    <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+                    <Link to="/calendar" onClick={() => setMenuOpen(false)}>Calendar</Link>
+                    <Link to="/news" onClick={() => setMenuOpen(false)}>News</Link>
+                    <Link to="/photos" onClick={() => setMenuOpen(false)}>Photos</Link>
+                    <Link to="/eagles-nest" onClick={() => setMenuOpen(false)}>Eagles Nest</Link>
+                    <Link to="/resources" onClick={() => setMenuOpen(false)}>Resources</Link>
+                </nav>
+            </div>
         </header>
     );
-}
+};
 
 export default Header;
