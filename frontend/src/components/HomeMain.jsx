@@ -49,6 +49,8 @@ const HomeMain = () => {
                 })),
             );
             setEvents(formattedEvents.sort((a, b) => new Date(b.start) - new Date(a.start)).slice(0, 3))
+            // setEvents(formattedEvents.sort((a, b) => new Date(a.start) - new Date(b.start)).slice(0, 3)
+            //i believe this would make more sense since you want the events closest to coming up but that would mean the events that alr happened would need to be deleted
             } else {
             console.error('Failed to fetch events:', data.message);
             }
