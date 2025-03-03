@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Connects the file to mongoDB and finds events in the grid
 const eventSchema = new mongoose.Schema({
     _id: { type: mongoose.Schema.Types.ObjectId, required: true, auto: true },
     title: { type: String, required: true },
