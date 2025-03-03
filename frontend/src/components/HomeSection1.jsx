@@ -172,25 +172,25 @@ const ScoutingSlideshow = () => {
                     </div>
                 </div>
                 <section className='flex flex-col'>
-                    <header className='flex'>
-                        <img src={Logo} alt="logo" />
+                    <header className='flex items-center rounded-b-xl shadow-xl mb-4'>
+                        <img src={Logo} alt="logo" className='h-16 w-16'/>
                         <h1>TROOP 747</h1>
                     </header>
                     <div className='flex'>
-                        <div >
+                        <div>
                             <h1 className='font-bold'>What is the Troop 747 Program?</h1>
-                            <p>The traditional Scouting program, Troop 747 follows Scouts BSA, where youth develop outdoor survival skills, self-confidence, and ethics through youth planned activities with increased attention to service, community engagement, and leadership. </p>
+                            <p>The traditional Scouting program, Troop 747 follows Scouts BSA, where youth develop outdoor survival skills, self-confidence, and ethics through youth planned activities with increased attention to service, community engagement, and leadership. </p>
                             <h1 className='font-bold'>What Will I do in Troop 747?</h1>
-                            <p>Troop 747 is where youth explore their interests and develop skills by participating in outdoor activities like hiking, camping, and canoeing. Scouts earn merit badges along the journey and work towards achieving Scouting’s highest rank—Eagle Scout. </p>
+                            <p>Troop 747 is where youth explore their interests and develop skills by participating in outdoor activities like hiking, camping, and canoeing. Scouts earn merit badges along the journey and work towards achieving Scouting’s highest rank—Eagle Scout. </p>
                             <h1 className='font-bold'>How Often Does Troop 747 Meet?</h1>
                             <p>Troop 747 scouts meet every Tuesday.</p>
                         </div>
                         <div>
                             <h1 className='font-bold'>Who Runs Troop 747?</h1>
-                            <p>Elected youth lead their troop and run the meetings at the guidance of the Scoutmaster and other adult leaders. Unlike Cub Scouts, Scouts BSA is a youth program planned mainly by the Scouts, not the parents. </p>
+                            <p>Elected youth lead their troop and run the meetings at the guidance of the Scoutmaster and other adult leaders. Unlike Cub Scouts, Scouts BSA is a youth program planned mainly by the Scouts, not the parents. </p>
                             <h1 className='font-bold'>Why Should I Join Troop 747?</h1>
-                            <p>Scouts BSA prepares youth to make ethical and moral choices over their lifetimes by instilling the values of the Scout Oath and Law. Throughout their time in Scouting, Scouts learn the value of hard work and experience the thrill of seeing it pay off. </p>
-                            <button>SIGN UP</button>
+                            <p>Scouts BSA prepares youth to make ethical and moral choices over their lifetimes by instilling the values of the Scout Oath and Law. Throughout their time in Scouting, Scouts learn the value of hard work and experience the thrill of seeing it pay off. </p>
+                            <button className='bg-brand-accent-warm rounded-xl w-full'>LEARN MORE</button>
                         </div>
                     </div>
                 </section>

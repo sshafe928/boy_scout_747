@@ -85,7 +85,7 @@ const Header = () => {
                 </header>
             ) : (
                 <header className='flex flex-col bg-brand-primary-black text-white w-screen'>
-                    <nav className='flex items-center justify-between h-24 shadow-md'>
+                    <nav className='flex items-center justify-between h-24 shadow-xl'>
                         {/* Logo */}
                         <div className="flex items-center gap-4 ml-4 text-3xl">
                             <img src={Logo} alt="logo" className='size-16 bg-white rounded-full'/>
