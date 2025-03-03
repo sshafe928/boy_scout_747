@@ -34,7 +34,7 @@ function BigCalendar() {
 
   return (
     <>
-      <body className="overflow-x-hidden bg-brand-primary-gold">
+      <div className="overflow-x-hidden bg-brand-primary-gold">
         <Header />
         <div className="w-screen">
           <div className="lg:w-[90vw] w-[80vw] h-[60vh] bg-white m-auto mt-[4vh] p-1">
@@ -64,7 +64,7 @@ function BigCalendar() {
           <polygon fill="#522f18" points="943 900 1210 900 971 687" />
         </svg>
         <Footer />
-      </body>
+      </div>
     </>
   );
 }
