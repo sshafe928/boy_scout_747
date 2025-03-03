@@ -23,7 +23,8 @@ function BigCalendar() {
               location: event.location,
               start: new Date(event.start),
               end: new Date(event.end),
-            }))
+              img_url: event.img_url,
+            })),
           );
         } else {
           console.error('Failed to fetch events:', data.message);
