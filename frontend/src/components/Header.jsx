@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { IoMdSearch } from "react-icons/io";
 import { X } from "lucide-react";
+import { Link } from 'react-router-dom'
+import NavLink from "./NavLink"
 import Logo from '../assets/Logo.png';
 
 const Header = () => {
@@ -70,13 +72,12 @@ const Header = () => {
                                 </div>
 
                                 <nav className="flex flex-col items-center pt-8 space-y-20 font-Tienne">
-                                    <a href="/calendar" className="text-gray-800 text-lg font-medium">Calendar</a>
-                                    <a href="/events" className="text-gray-800 text-lg font-medium">Events</a>
-                                    <a href="/photos" className="text-gray-800 text-lg font-medium">Photos</a>
-                                    <a href="/troopplc" className="text-gray-800 text-lg font-medium">Troop PLC</a>
-                                    <a href="/eaglescout" className="text-gray-800 text-lg font-medium">Eagle Scout</a>
-                                    <a href="/scoutmaster" className="text-gray-800 text-lg font-medium">Scoutmaster</a>
-                                    <a href="/resources" className="text-gray-800 text-lg font-medium">Resources</a>
+                                    <Link to="/" className="text-gray-800 text-lg font-medium">Home</Link>
+                                    <Link to="/calendar" className="text-gray-800 text-lg font-medium">Calendar</Link>
+                                    <Link to="/news" className="text-gray-800 text-lg font-medium">News</Link>
+                                    <Link to="/photos" className="text-gray-800 text-lg font-medium">Photos</Link>
+                                    <Link to="/eagles-nest" className="text-gray-800 text-lg font-medium">Eagles Nest</Link>
+                                    <Link to="/resources" className="text-gray-800 text-lg font-medium">Resources</Link>
                                 </nav>
                             </div>
                         </div>
@@ -96,52 +97,19 @@ const Header = () => {
                             <IoMdSearch className='search-icon' onChange={(e) => handleSearch(e)} />
                         </div>
                         {/* Links */}
-                        <div className='flex justify-around gap-8 w-1/3 relative right-14'>
-                            <div className="relative group">
-                                <a href="/">HOME</a>
-                                <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left"></span>
-                            </div>
-                            <div className="relative group">
-                                <a href="/eaglesnest">EAGLES' NEST</a>
-                                <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left"></span>
-                            </div>
-                            <div className="relative group">
-                                <a href="/news">NEWS</a>
-                                <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left"></span>
-                            </div>
+                        <div className='flex justify-around gap-8 w-1/3 relative right-14 '>
+                            <NavLink title={'HOME'} href={'/'} />
+                            <NavLink title={"EAGLES' NEST"} href={'/eagles-nest'} />
+                            <NavLink title={'NEWS'} href={'/news'} />
                         </div>
                     </nav>
                     <div className="h-2 bg-brand-primary-gold" />
                     {/* Bottom Links */}
-                    <div className="bg-brand-primary-brown flex justify-center items-center gap-4 h-12 text-sm">
-                        <div className="relative group">
-                            <a href="/calendar">Calendar</a>
-                            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left"></span>
-                        </div>
-                        <div className="relative group">
-                            <a href="/events">Events</a>
-                            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left"></span>
-                        </div>
-                        <div className="relative group">
-                            <a href="/photos">Photos</a>
-                            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left"></span>
-                        </div>
-                        <div className="relative group">
-                            <a href="/troopplc">Troop PLC</a>
-                            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left"></span>
-                        </div>
-                        <div className="relative group">
-                            <a href="/eaglescout">Eagle Scout</a>
-                            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left"></span>
-                        </div>
-                        <div className="relative group">
-                            <a href="/scoutmaster">Scoutmaster</a>
-                            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left"></span>
-                        </div>
-                        <div className="relative group">
-                            <a href="/resources">Resources</a>
-                            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left"></span>
-                        </div>
+                    <div className="bg-brand-primary-brown flex justify-center space-x-9 items-center gap-4 h-12 text-md">
+                        <NavLink title={'Calendar'} href={'/calendar'} />
+                        <NavLink title={'News'} href={'/news'} />
+                        <NavLink title={'Photos'} href={'/photos'} />
+                        <NavLink title={'Resources'} href={'/resources'} />
                     </div>
                 </header>
             )}
