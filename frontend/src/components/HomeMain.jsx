@@ -29,13 +29,33 @@ const slides = [
     },
 ];
 
-const events = [
-    { id: 1, src: 'https://res.cloudinary.com/drnaycy06/image/upload/v1731009869/cld-sample-2.jpg', title: 'Camp Geronimo', desc: 'Camp Geronimo is a premier summer camp experience for Boy Scouts of America, nestled in the scenic Payson, Arizona wilderness. Surrounded by towering ponderosa pines and breathtaking mountain landscapes' },
-    { id: 2, src: 'https://res.cloudinary.com/drnaycy06/image/upload/v1731009869/cld-sample.jpg', title: 'Event 2', desc: 'Description of Event 2' },
-    { id: 3, src: 'https://res.cloudinary.com/drnaycy06/image/upload/v1731009868/samples/coffee.jpg', title: 'Event 3', desc: 'Description of Event 3' }
-];
-
 const HomeMain = () => {
+    const [formattedEvents, setFormattedEvents] = useState([]);
+    const [events, setEvents] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/api/events')
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.success) {
+            setFormattedEvents(
+                data.data.map((event) => ({
+                title: event.title,
+                type: event.type,
+                description: event.description,
+                location: event.location,
+                start: new Date(event.start),
+                end: new Date(event.end),
+                img_url: event.img_url,
+                })),
+            );
+            setEvents(formattedEvents.sort((a, b) => new Date(b.start) - new Date(a.start)).slice(0, 3))
+            } else {
+            console.error('Failed to fetch events:', data.message);
+            }
+        })
+        .catch((err) => console.error('Error fetching events:', err));
+    }, [formattedEvents]);
+    
     const [currentSlide, setCurrentSlide] = useState(0);
     
     useEffect(() => {
@@ -206,7 +226,7 @@ const HomeMain = () => {
                 {/* Event Cards */}
                 <div className="flex gap-6 justify-center flex-wrap">
                     {events.map((event) => (
-                        <HomeEvent key={event.id} img={event.src} title={event.title} desc={event.desc}/>
+                        <HomeEvent key={event.title} img={event.img_url} title={event.title} desc={event.description}/>
                     ))}
                 </div>
             </section>
