@@ -1,0 +1,113 @@
+[
+{
+    "id": 1,
+    "title": "Weekly Troop Meeting",
+    "date": "2025-01-08",
+    "time": "18:30",
+    "location": "Scout Hut, 123 Main St",
+    "description": "Regular troop meeting. Wear Class A uniforms. Bring your handbook and any completed requirements.",
+    "type": "Meeting"
+},
+{
+    "id": 2,
+    "title": "Winter Camping Trip",
+    "date": "2025-01-17",
+    "endDate": "2025-01-19",
+    "time": "16:00",
+    "location": "Frostwood Campground",
+    "description": "Weekend winter camping trip. Bring your cold-weather gear, Class B uniforms, and a positive attitude! Parents are welcome to join.",
+    "type": "Camping"
+},
+{
+    "id": 3,
+    "title": "Community Service: Food Drive",
+    "date": "2025-01-25",
+    "time": "09:00",
+    "location": "Local Food Bank, 789 Oak St",
+    "description": "Help organize and distribute food for those in need. Wear Class B uniforms and bring a reusable water bottle.",
+    "type": "Service"
+},
+{
+    "id": 4,
+    "title": "Merit Badge Workshop",
+    "date": "2025-02-01",
+    "time": "10:00",
+    "location": "Scout Hut, 123 Main St",
+    "description": "Work on merit badges with guest instructors. Bring your merit badge worksheets and any required materials.",
+    "type": "Workshop"
+},
+{
+    "id": 5,
+    "title": "Eagle Scout Court of Honor",
+    "date": "2025-02-15",
+    "time": "19:00",
+    "location": "Community Center, 456 Elm St",
+    "description": "Celebrate the achievements of our newest Eagle Scouts. Families and friends are welcome. Dress formally.",
+    "type": "Ceremony"
+},
+{
+    "id": 6,
+    "title": "Spring Camp Planning Meeting",
+    "date": "2025-03-05",
+    "time": "18:30",
+    "location": "Scout Hut, 123 Main St",
+    "description": "Planning meeting for the upcoming spring camp. Parents and scouts should attend to discuss logistics and preparations.",
+    "type": "Meeting"
+},
+{
+    "id": 7,
+    "title": "Spring Camping Adventure",
+    "date": "2025-03-21",
+    "endDate": "2025-03-23",
+    "time": "14:00",
+    "location": "Sunny Meadows Campground",
+    "description": "Spring camping trip with hiking, fishing, and outdoor skills training. Bring your camping gear and Class B uniforms.",
+    "type": "Camping"
+},
+{
+    "id": 8,
+    "title": "Scout-O-Rama",
+    "date": "2025-04-12",
+    "time": "10:00",
+    "location": "City Park, 101 Scout Way",
+    "description": "Annual Scout-O-Rama event! Showcase scouting skills and participate in fun activities. Open to the public.",
+    "type": "Event"
+},
+{
+    "id": 9,
+    "title": "Memorial Day Flag Placement",
+    "date": "2025-05-24",
+    "time": "08:00",
+    "location": "Veterans Cemetery, 555 Patriot Ave",
+    "description": "Honor fallen heroes by placing flags at their gravesites. Wear Class A uniforms and bring work gloves.",
+    "type": "Service"
+},
+{
+    "id": 10,
+    "title": "Summer Camp Prep Meeting",
+    "date": "2025-06-04",
+    "time": "18:30",
+    "location": "Scout Hut, 123 Main St",
+    "description": "Final meeting to prepare for summer camp. Parents and scouts must attend to review packing lists and schedules.",
+    "type": "Meeting"
+},
+{
+    "id": 11,
+    "title": "Summer Camp",
+    "date": "2025-06-21",
+    "endDate": "2025-06-28",
+    "time": "08:00",
+    "location": "Lakeview Scout Reservation",
+    "description": "Week-long summer camp with activities like swimming, archery, and merit badge classes. Bring all required gear and a positive attitude!",
+    "type": "Camping"
+},
+{
+    "id": 12,
+    "title": "4th of July Parade",
+    "date": "2025-07-04",
+    "time": "09:00",
+    "location": "Downtown Main St",
+    "description": "March in the annual 4th of July parade. Wear Class A uniforms and bring plenty of water.",
+    "type": "Event"
+}
+]
