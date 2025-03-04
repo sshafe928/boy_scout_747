@@ -62,23 +62,19 @@ const NewsPage = () => {
         <>
         <Header/>
         {/* Mobile Version of News Page */}
-        {sampleEvents.map((event, index) => {
-            // Checks if card is odd to determine the background color
-            return index % 2 !== 0 ?
-            <div key={event.title} className="p-8 border-b border-gray-300 bg-brand-accent-warm flex flex-col mx-auto my-6 w-4/5 text-white">
-                <h3 className='text-2xl'>{event.month}</h3>
-                <h1 className='text-4xl py-4 font-bold'>{event.day}</h1>
-                <p>{event.title}</p>
-                <p>{event.time}</p>
-            </div>
-            : 
-            <div key={event.title} className="p-8 border-b border-gray-300 bg-brand-accent-light flex flex-col mx-auto my-6 w-4/5">
-                <h3 className='text-2xl'>{event.month}</h3>
-                <h1 className='text-4xl py-4 font-bold'>{event.day}</h1>
-                <p>{event.title}</p>
-                <p>{event.time}</p>
-            </div>
-            })}
+        <div className='flex flex-col my-5 gap-8 flex-wrap items-center justify-center sm:flex-row'>
+            {sampleEvents.map((event, index) => {
+                // Checks if card is odd to determine the background color
+                return (
+                    <div key={event.title} className={`p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
+                        <h3 className='text-2xl'>{event.month}</h3>
+                        <h1 className='text-4xl py-4 font-bold'>{event.day}</h1>
+                        <p>{event.title}</p>
+                        <p>{event.time}</p>
+                    </div>
+                )
+                })}
+        </div>
         <Footer/>
         </>
     )
