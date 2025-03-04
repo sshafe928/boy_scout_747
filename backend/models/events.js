@@ -8,6 +8,7 @@ const eventSchema = new mongoose.Schema({
     end: { type: Date, required: true },
     location: { type: String, required: true },
     type: { type: String, required: true },
+    img_url: { type: String, required: true},
 }, { collection: 'Mock_Events' });
 
 module.exports = mongoose.model('Event', eventSchema);

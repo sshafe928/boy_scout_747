@@ -7,25 +7,41 @@ import Footer from './components/Footer';
 
 const localizer = momentLocalizer(moment);
 
+const Converter = (utcData) =>{
+  const date = new Date(utcData);
+  date.setHours(date.getHours() +7);
+  return date;
+}
+
 function BigCalendar() {
   const [formattedEvents, setFormattedEvents] = useState([]);
+
+
 
   useEffect(() => {
     fetch('http://localhost:5000/api/events')
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) {
+        if (data.success) 
+        // {
+        //   setFormattedEvents(data.events);
+        // }
+          
+          {
           setFormattedEvents(
             data.data.map((event) => ({
               title: event.title,
               type: event.type,
               description: event.description,
               location: event.location,
-              start: new Date(event.start),
-              end: new Date(event.end),
-            }))
+              start: Converter(event.start),
+              end: Converter(event.end),
+              img_url: event.img_url,
+            })),
           );
-        } else {
+        } 
+
+        else {
           console.error('Failed to fetch events:', data.message);
         }
       })
