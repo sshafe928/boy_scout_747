@@ -102,11 +102,11 @@ const NewsPage = () => {
             {sampleEvents.map((event, index) => {
                 // Checks if card is odd to determine the background color
                 return (
-                    <div key={event.title} className={`p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
+                    <div key={event.title} className={`font-Tienne p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
                         <h3 className='text-2xl'>{event.month}</h3>
-                        <h1 className='text-4xl py-4 font-bold'>{event.day}</h1>
-                        <p>{event.title}</p>
-                        <p>{event.time}</p>
+                        <h1 className='text-5xl py-4 font-bold'>{event.day}</h1>
+                        <p className='text-lg pb-4'>{event.title}</p>
+                        <p className='font-semibold'>{event.time}</p>
                     </div>
                 )
                 })}
