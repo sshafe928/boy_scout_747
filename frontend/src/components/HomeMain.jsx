@@ -37,26 +37,33 @@ const HomeMain = () => {
         .then((res) => res.json())
         .then((data) => {
             if (data.success) {
-            setFormattedEvents(
-                data.data.map((event) => ({
-                title: event.title,
-                type: event.type,
-                description: event.description,
-                location: event.location,
-                start: new Date(event.start),
-                end: new Date(event.end),
-                img_url: event.img_url,
-                })),
-            );
-            setEvents(formattedEvents.sort((a, b) => new Date(b.start) - new Date(a.start)).slice(0, 3))
-            // setEvents(formattedEvents.sort((a, b) => new Date(a.start) - new Date(b.start)).slice(0, 3)
-            //i believe this would make more sense since you want the events closest to coming up but that would mean the events that alr happened would need to be deleted
+                const formatted = data.data.map((event) => ({
+                    title: event.title,
+                    type: event.type,
+                    description: event.description,
+                    location: event.location,
+                    start: new Date(event.start),
+                    end: new Date(event.end),
+                    img_url: event.img_url,
+                }));
+                setFormattedEvents(formatted);
             } else {
-            console.error('Failed to fetch events:', data.message);
+                console.error('Failed to fetch events:', data.message);
             }
         })
         .catch((err) => console.error('Error fetching events:', err));
+    }, []);
+
+    useEffect(() => {
+        function findClosestUpcomingEvents(events) {
+            const now = new Date();
+            return events.filter(event => event.start >= now)
+                .sort((a, b) => a.start - b.start)
+                .slice(0, 3);
+        }
+        setEvents(findClosestUpcomingEvents(formattedEvents));
     }, [formattedEvents]);
+
     
     const [currentSlide, setCurrentSlide] = useState(0);
     
