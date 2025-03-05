@@ -54,31 +54,63 @@ const NewsPage = () => {
             day: '15',
             time: '3:00 PM to 9:00 PM',
             content: 'Step into a magical Winter Wonderland with festive lights, ice skating, holiday markets, and a visit from Santa! Fun for all ages.'
+        },
+        {
+            title: 'New Year’s Eve Countdown Party',
+            month: 'December',
+            day: '31',
+            time: '8:00 PM to 12:30 AM',
+            content: 'Ring in the New Year with a spectacular fireworks show, live performances, and a midnight toast. Celebrate with family and friends as we count down to the new year!'
+        },
+        {
+            title: 'Spring Gardening Workshop',
+            month: 'March',
+            day: '12',
+            time: '9:00 AM to 12:00 PM',
+            content: 'Learn the basics of organic gardening, composting, and plant care in this hands-on workshop. Perfect for beginners and green thumbs alike!'
+        },
+        {
+            title: 'Food Truck Festival',
+            month: 'April',
+            day: '20',
+            time: '12:00 PM to 8:00 PM',
+            content: 'Savor a variety of delicious eats at our Food Truck Festival! From gourmet burgers to exotic street food, there’s something for everyone.'
+        },
+        {
+            title: 'Music in the Park',
+            month: 'May',
+            day: '18',
+            time: '5:00 PM to 9:00 PM',
+            content: 'Enjoy an evening of live music in the park with local bands and artists. Bring a picnic blanket and relax under the stars!'
+        },
+        {
+            title: 'Summer Outdoor Movie Night',
+            month: 'June',
+            day: '22',
+            time: '7:30 PM to 10:00 PM',
+            content: 'Grab your popcorn and watch a classic movie under the night sky. Bring your own chairs or blankets for a cozy experience.'
         }
     ];
+    
     
 
     return (
         <>
         <Header/>
         {/* Mobile Version of News Page */}
-        {sampleEvents.map((event, index) => {
-            // Checks if card is odd to determine the background color
-            return index % 2 !== 0 ?
-            <div key={event.title} className="p-8 border-b border-gray-300 bg-brand-accent-warm flex flex-col mx-auto my-6 w-4/5 text-white">
-                <h3 className='text-2xl'>{event.month}</h3>
-                <h1 className='text-4xl py-4 font-bold'>{event.day}</h1>
-                <p>{event.title}</p>
-                <p>{event.time}</p>
-            </div>
-            : 
-            <div key={event.title} className="p-8 border-b border-gray-300 bg-brand-accent-light flex flex-col mx-auto my-6 w-4/5">
-                <h3 className='text-2xl'>{event.month}</h3>
-                <h1 className='text-4xl py-4 font-bold'>{event.day}</h1>
-                <p>{event.title}</p>
-                <p>{event.time}</p>
-            </div>
-            })}
+        <div className='flex flex-col my-5 gap-8 flex-wrap items-center justify-center sm:flex-row'>
+            {sampleEvents.map((event, index) => {
+                // Checks if card is odd to determine the background color
+                return (
+                    <div key={event.title} className={`font-Tienne p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
+                        <h3 className='text-2xl'>{event.month}</h3>
+                        <h1 className='text-5xl py-4 font-bold'>{event.day}</h1>
+                        <p className='text-lg pb-4'>{event.title}</p>
+                        <p className='font-semibold'>{event.time}</p>
+                    </div>
+                )
+                })}
+        </div>
         <Footer/>
         </>
     )
