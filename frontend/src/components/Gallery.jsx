@@ -50,7 +50,7 @@ const Gallery = () => {
       hasMore={hasMore}
       loader={<h4 className="text-center py-5">Loading...</h4>}
     >
-      <div className="p-5 md:p-10">
+      <div className="p-5 lg:p-10">
         <div className="columns-1 gap-5 lg:gap-8 sm:columns-2 lg:columns-3 xl:columns-4">
           {visiblePhotos.map((picture, index) => (
             <div

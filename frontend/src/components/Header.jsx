@@ -42,14 +42,14 @@ const Header = () => {
     return (
         <header className="relative">
             {/* Mobile Header */}
-            <nav className="flex items-center justify-between h-24 bg-brand-primary-black text-white px-4 md:shadow-xl z-30 relative">
-                <div className="flex items-center gap-2 md:gap-4 md:ml-4">
+            <nav className="flex items-center justify-between h-24 bg-brand-primary-black text-white px-4 lg:shadow-xl z-30 relative">
+                <div className="flex items-center gap-2 lg:gap-4 lg:ml-4">
                     <img src={Logo} alt="logo" className="size-16 bg-white rounded-full"/>
-                    <h1 className="text-2xl md:text-3xl">TROOP 747</h1>
+                    <h1 className="text-2xl lg:text-3xl">TROOP 747</h1>
                 </div>
                 
                 {/* Desktop Search Bar - Hidden on mobile */}
-                <div className="hidden landscape:hidden md:flex border border-neutral-400 rounded-2xl items-center px-2 py-1 relative left-32 -mr-4">
+                <div className="hidden lg:flex border border-neutral-400 rounded-2xl items-center px-2 py-1 relative left-32 -mr-4">
                     <input 
                         type="search" 
                         name="search" 
@@ -61,7 +61,7 @@ const Header = () => {
                 </div>
                 
                 {/* Desktop Navigation Links - Hidden on mobile */}
-                <div className='hidden md:flex justify-around gap-8 w-1/3 relative right-14'>
+                <div className='hidden lg:flex justify-around gap-8 w-1/3 relative right-14'>
                     <div className="relative group">
                         <Link to="/">HOME</Link>
                         <span className="absolute left-0 bottom-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left"></span>
@@ -79,14 +79,14 @@ const Header = () => {
                 {/* Mobile Menu Button - Hidden on desktop */}
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
-                    className="text-3xl p-2 md:hidden"
+                    className="text-3xl p-2 lg:hidden"
                 >
                     ☰
                 </button>
             </nav>
 
             {/* Gold divider and bottom links - Only visible on desktop */}
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
                 <div className="h-2 bg-brand-primary-gold" />
                 <div className="bg-brand-primary-brown flex justify-center space-x-9 items-center gap-4 h-12 text-md text-white">
                     <div className="relative group">
@@ -114,7 +114,7 @@ const Header = () => {
                 flex flex-col justify-center items-center text-center
                 bg-brand-primary-black 
                 translate-x-0 transition-transform duration-300 ease-linear z-40
-                md:hidden
+                lg:hidden
                 ${menuOpen ? 'translate-x-neg-full' : ''}
             `}>
                 {/* Close Button */}
