@@ -3,13 +3,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { useState, useEffect } from 'react';
 
-let formatted;
-const date = new Date('2025-03-05T22:19:08.857Z');
-
-const options = { year: 'numeric', month: 'long', day: 'numeric' };
-const formattedDate = date.toLocaleDateString('en-US', options);
-
-console.log(formattedDate);
 const NewsPage = () => {
     const [formattedEvents, setFormattedEvents] = useState([]);
 
