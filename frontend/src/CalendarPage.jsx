@@ -36,8 +36,7 @@ function BigCalendar() {
               location: event.location,
               start: Converter(event.start),
               end: Converter(event.end),
-              img_url: event.img_url,
-            })),
+            }))
           );
         } 
 
