@@ -9,6 +9,7 @@ export default {
         'brand-primary-brown': '#784B33',
         
         'brand-accent-brown': '#502F18',
+        'brand-accent-brown-light': '#80604f',
         'brand-accent-warm': '#EEBA00',
         'brand-accent-light': '#FFE995',
         'brand-accent-yellow': '#F8F3E1',
