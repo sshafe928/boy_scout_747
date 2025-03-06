@@ -36,11 +36,13 @@ const NewsPage = () => {
             {formattedEvents.map((event, index) => {
                 // Checks if card is odd to determine the background color
                 return (
-                    <div key={event.title} className={`font-Tienne p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
-                        <h3 className='text-2xl'>{event.date}</h3>
-                        <h1 className='text-5xl py-4 font-bold'>{event.date}</h1>
+                    <div key={event.title} className={`relative drop-shadow-xl font-Tienne p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
+                        <h3 className='text-2xl'>{event.month}</h3>
+                        <h1 className='text-5xl py-4 font-bold'>{event.day}</h1>
                         <p className='text-lg pb-4'>{event.title}</p>
-                        <p className='font-semibold'>{event.location}</p>
+                        <p className='font-semibold'>{event.time}</p>
+                        {/* The content that will display over the element when hovered over */}
+                        <div className={`flex justify-center text-center items-center absolute inset-y-0 left-0 w-full text-xl p-5 opacity-0 transition ease-in-out duration-500 hover:opacity-100 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>{event.content}</div>
                     </div>
                 )
                 })}

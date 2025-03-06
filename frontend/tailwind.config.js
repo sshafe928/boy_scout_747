@@ -11,6 +11,7 @@ export default {
         'brand-accent-brown': '#502F18',
         'brand-accent-warm': '#EEBA00',
         'brand-accent-light': '#FFE995',
+        'brand-accent-yellow': '#F8F3E1',
       },
       fontFamily: {
         'Tienne': ['Tienne', 'Times New Roman', 'Times', 'serif', 'system-ui'],
