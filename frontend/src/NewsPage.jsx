@@ -38,7 +38,7 @@ const NewsPage = () => {
         <div className='flex flex-col my-5 gap-8 flex-wrap items-center justify-center sm:flex-row'>
             {formattedEvents.map((event, index) => {
                 return (
-                    <div key={event.title} className={`font-Tienne p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
+                    <div key={event.title} className={`relative font-Tienne p-8 border-b border-gray-300 flex flex-col w-4/5 h-[280px] sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
                         <div className="flex justify-between">
                             <h3 className='text-2xl'>{event.month}</h3>
                             <h3 className="text-2xl">{event.year}</h3>
@@ -47,7 +47,7 @@ const NewsPage = () => {
                         <p className='text-lg pb-4'>{event.title}</p>
                         <p className='font-semibold'>{event.time}</p>
                         {/* The content that will display over the element when hovered over */}
-                        <div className={`flex justify-center text-center items-center absolute inset-y-0 left-0 w-full text-xl p-5 opacity-0 transition ease-in-out duration-500 hover:opacity-100 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>{event.description}</div>
+                        <div className={`flex justify-center text-center items-center absolute inset-0 text-base lg:text-[15px] p-5 opacity-0 transition ease-in-out duration-500 hover:opacity-100 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>{event.description}</div>
                     </div>
                 );
             })}
