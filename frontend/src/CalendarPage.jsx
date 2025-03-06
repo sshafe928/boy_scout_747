@@ -49,6 +49,11 @@ function BigCalendar() {
 
   const handleEventClick = (event) =>{
     setSelectedEvent(event);
+     const section = document.getElementById("eventer")
+     if(section){
+       section.scrollIntoView({ behavior: "smooth" });
+     }
+
   }
 
   const Changer = (Value) =>{
@@ -76,12 +81,13 @@ function BigCalendar() {
                 startAccessor="start"
                 endAccessor="end"
                 onSelectEvent={handleEventClick}
+                href="#eventer"
               />
             </div>
           </div>
         </div>
         {selectedEvent && (
-  <div className="mt-4 p-2 lg:w-[90vw] w-[80vw] m-auto bg-white border rounded-lg text-center">    
+  <div className="mt-4 p-2 lg:w-[90vw] w-[80vw] m-auto bg-white border rounded-lg text-center" id="eventer">    
     <img src={selectedEvent.img_url} alt={selectedEvent.title} />
     <h2 className="text-xl font-bold">{selectedEvent.title}</h2>
     <p><strong>Type:</strong> {selectedEvent.type}</p>
