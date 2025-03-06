@@ -13,6 +13,7 @@ app.use(express.json());
 app.use('/api/photos', require('./routes/photoRoutes'));
 app.use('/api/events', require('./routes/eventRoutes'));
 app.use('/api/news', require('./routes/newsRoutes'));
+app.use('/api/eagles', require('./routes/eagleRoutes'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

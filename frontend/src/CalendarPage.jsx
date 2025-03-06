@@ -49,10 +49,10 @@ function BigCalendar() {
 
   const handleEventClick = (event) =>{
     setSelectedEvent(event);
-     const section = document.getElementById("eventer")
-     if(section){
-       section.scrollIntoView({ behavior: "smooth" });
-     }
+      const section = document.getElementById("eventer")
+      if(section){
+        section.scrollIntoView({ behavior: "smooth" });
+      }
 
   }
 

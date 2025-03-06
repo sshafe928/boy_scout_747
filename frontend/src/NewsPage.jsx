@@ -3,29 +3,29 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 const NewsPage = () => {
-    const [formattedEvents, setFormattedEvents] = useState([]);
+    const [formattedNews, setFormattedNews] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/api/news')
         .then((res) => res.json())
         .then((data) => {
             if (data.success) {
-                const formatted = data.data.map((event) => {
-                    const date = new Date(event.date);
+                const formatted = data.data.map((news) => {
+                    const date = new Date(news.date);
                     const year = date.getFullYear();
                     const month = date.toLocaleString('en-US', { month: 'long' });
                     const day = date.getDate();
 
                     return {
-                        title: event.title,
+                        title: news.title,
                         year,
                         month,
                         day,
-                        description: event.description,
-                        location: event.location,
+                        description: news.description,
+                        location: news.location,
                     };
                 });
-                setFormattedEvents(formatted);
+                setFormattedNews(formatted);
             }
         })
         .catch(error => console.error('Error fetching news:', error));
@@ -36,18 +36,18 @@ const NewsPage = () => {
         <Header/>
         {/* Mobile Version of News Page */}
         <div className='flex flex-col my-5 gap-8 flex-wrap items-center justify-center sm:flex-row'>
-            {formattedEvents.map((event, index) => {
+            {formattedNews.map((news, index) => {
                 return (
-                    <div key={event.title} className={`font-Tienne p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
+                    <div key={news.title} className={`font-Tienne p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
                         <div className="flex justify-between">
-                            <h3 className='text-2xl'>{event.month}</h3>
-                            <h3 className="text-2xl">{event.year}</h3>
+                            <h3 className='text-2xl'>{news.month}</h3>
+                            <h3 className="text-2xl">{news.year}</h3>
                         </div>
-                        <h1 className='text-5xl py-4 font-bold'>{event.day}</h1>
-                        <p className='text-lg pb-4'>{event.title}</p>
-                        <p className='font-semibold'>{event.time}</p>
+                        <h1 className='text-5xl py-4 font-bold'>{news.day}</h1>
+                        <p className='text-lg pb-4'>{news.title}</p>
+                        <p className='font-semibold'>{news.time}</p>
                         {/* The content that will display over the element when hovered over */}
-                        <div className={`flex justify-center text-center items-center absolute inset-y-0 left-0 w-full text-xl p-5 opacity-0 transition ease-in-out duration-500 hover:opacity-100 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>{event.description}</div>
+                        <div className={`flex justify-center text-center items-center absolute inset-y-0 left-0 w-full text-xl p-5 opacity-0 transition ease-in-out duration-500 hover:opacity-100 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>{news.description}</div>
                     </div>
                 );
             })}
