@@ -45,7 +45,9 @@ const NewsPage = () => {
                         </div>
                         <h1 className='text-5xl py-4 font-bold'>{event.day}</h1>
                         <p className='text-lg pb-4'>{event.title}</p>
-                        <p className='font-semibold'>{event.location}</p>
+                        <p className='font-semibold'>{event.time}</p>
+                        {/* The content that will display over the element when hovered over */}
+                        <div className={`flex justify-center text-center items-center absolute inset-y-0 left-0 w-full text-xl p-5 opacity-0 transition ease-in-out duration-500 hover:opacity-100 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>{event.description}</div>
                     </div>
                 );
             })}
