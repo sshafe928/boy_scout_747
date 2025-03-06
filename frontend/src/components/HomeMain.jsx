@@ -59,7 +59,7 @@ const HomeMain = () => {
             const now = new Date();
             return events.filter(event => event.start >= now)
                 .sort((a, b) => a.start - b.start)
-                .slice(0, 3);
+                .slice(0, 6);
         }
         setEvents(findClosestUpcomingEvents(formattedEvents));
     }, [formattedEvents]);
