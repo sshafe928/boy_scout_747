@@ -73,8 +73,8 @@ function BigCalendar() {
       <div className="overflow-x-hidden bg-brand-primary-gold">
         <Header />
         <div className="w-screen">
-          <div className="lg:w-[90vw] w-[80vw] h-[60vh] bg-white m-auto mt-[4vh] p-1">
-            <div className="lg:w-[89vw] w-[79vw] h-[59vh]">
+          <div className=" w-[90vw] h-[60vh] md:w-[70vw] md:h-[80vh] bg-white m-auto mt-[4vh] p-1">
+            <div className=" w-[89vw] h-[59vh] md:w-[69vw] md:h-[79vh]">
               <Calendar
                 localizer={localizer}
                 events={formattedEvents}

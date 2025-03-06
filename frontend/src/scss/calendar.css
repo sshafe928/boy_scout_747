@@ -151,7 +151,8 @@ button.rbc-input::-moz-focus-inner {
 .rbc-toolbar .rbc-toolbar-label {
   flex-grow: 1;
   padding: 0 10px;
-  text-align: center;
+  text-align: start;
+  font-weight: 800;
 }
 .rbc-toolbar button {
   color: black;
