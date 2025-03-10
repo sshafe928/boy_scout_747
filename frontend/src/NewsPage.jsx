@@ -38,7 +38,7 @@ const NewsPage = () => {
         <div className='flex flex-col my-8 gap-8 flex-wrap items-center justify-center sm:flex-row'>
             {formattedNews.map((news, index) => {
                 return (
-                    <div key={news.title} className={`relative p-10 border-b border-gray-300 flex flex-col w-4/5 h-4/5 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? 'bg-brand-accent-light' : 'bg-brand-accent-warm text-white'} aspect-w-1 aspect-h-1`}>
+                    <div key={news.title} className={`relative font-Tienne p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
                         <div className="flex justify-between">
                             <h3 className='text-2xl'>{news.month}</h3>
                             <h3 className="text-2xl">{news.year}</h3>
