@@ -4,6 +4,7 @@ import moment from 'moment';
 import './scss/calendar.css';
 import React, { useEffect, useState } from 'react';
 import Footer from './components/Footer';
+import mountains from './assets/flat-mountains.png'
 
 const localizer = momentLocalizer(moment);
 let formatted
@@ -70,7 +71,7 @@ function BigCalendar() {
   }  
   return (
     <>
-      <div className="overflow-x-hidden bg-brand-primary-gold">
+      <div className="overflow-x-hidden h-auto bg-brand-primary-gold">
         <Header />
         <div className="w-screen">
           <div className=" w-[90vw] h-[60vh] md:w-[70vw] md:h-[80vh] bg-white m-auto mt-[4vh] p-1">
@@ -86,6 +87,7 @@ function BigCalendar() {
             </div>
           </div>
         </div>
+<div>
         {selectedEvent && (
   <div className="mt-4 p-2 lg:w-[90vw] w-[80vw] m-auto bg-white border rounded-lg text-center" id="eventer">    
     <img src={selectedEvent.img_url} alt={selectedEvent.title} />
@@ -110,21 +112,8 @@ function BigCalendar() {
 
   </div>
 )}
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
-          <rect fill="#EDC736" width="1600" height="900" />
-          <polygon fill="#6d442f" points="957 450 539 900 1396 900" />
-          <polygon fill="#462d18" points="957 450 872.9 900 1396 900" />
-          <polygon fill="#704630" points="-60 900 398 662 816 900" />
-          <polygon fill="#482d18" points="337 900 398 662 816 900" />
-          <polygon fill="#734831" points="1203 546 1552 900 876 900" />
-          <polygon fill="#4b2e18" points="1203 546 1552 900 1162 900" />
-          <polygon fill="#754932" points="641 695 886 900 367 900" />
-          <polygon fill="#4d2e18" points="587 900 641 695 886 900" />
-          <polygon fill="#784b33" points="1710 900 1401 632 1096 900" />
-          <polygon fill="#502f18" points="1710 900 1401 632 1365 900" />
-          <polygon fill="#7b4d34" points="1210 900 971 687 725 900" />
-          <polygon fill="#522f18" points="943 900 1210 900 971 687" />
-        </svg>
+  <img src={mountains} alt="Flat Mountains" />
+</div>
         <Footer />
       </div>
     </>
