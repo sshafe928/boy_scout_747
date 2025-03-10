@@ -5,6 +5,8 @@ import './scss/calendar.css';
 import React, { useEffect, useState } from 'react';
 import Footer from './components/Footer';
 import mountains from './assets/flat-mountains.png'
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 const localizer = momentLocalizer(moment);
 let formatted
@@ -87,33 +89,30 @@ function BigCalendar() {
             </div>
           </div>
         </div>
-<div>
-        {selectedEvent && (
-  <div className="mt-4 p-2 lg:w-[90vw] w-[80vw] m-auto bg-white border rounded-lg text-center" id="eventer">    
-    <img src={selectedEvent.img_url} alt={selectedEvent.title} />
-    <h2 className="text-xl font-bold">{selectedEvent.title}</h2>
-    <p><strong>Type:</strong> {selectedEvent.type}</p>
-    <p><strong>Description:</strong> {selectedEvent.description}</p>
-    <p><strong>Location:</strong> {selectedEvent.location}</p>
-    <p><strong>Start:</strong> {selectedEvent.start.toLocaleString()}</p>
-    <p><strong>End:</strong> {selectedEvent.end.toLocaleString()}</p>
-    <button 
-  onClick={() => Changer(-1)} 
-  className="bg-red-500 text-white px-4 py-2 rounded mt-4"
->
-  Prev
-</button>
-<button 
-  onClick={() => Changer(1)} 
-  className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
->
-  Next
-</button>
+{/* Bottom half of the webpage */}
+        <div className="mb-[-5rem] lg:mb-[-25rem]">
 
-  </div>
-)}
-  <img src={mountains} alt="Flat Mountains" />
-</div>
+          {selectedEvent && (
+            <div className="relative top-[5rem] p-2 lg:w-[70vw] w-[80vw] m-auto mb-0 bg-white border rounded-lg text-center z-50" id="eventer">    
+              <img src={selectedEvent.img_url} alt={selectedEvent.title} className="rounded-[10px] lg:place-self-center lg:mt-5 lg:w-[60vw]" />
+              <h2 className="text-[1.5rem] font-bold mt-[1rem]">{selectedEvent.title}</h2>
+              <p className="mt-[0.5rem]"> {selectedEvent.description}</p>
+              <p className="text-left mt-[1rem] ml-[1rem]"><strong>Type:</strong> {selectedEvent.type}</p>
+              <p className="text-left ml-[1rem]"><strong>Location:</strong> {selectedEvent.location}</p>
+              <p className="text-left ml-[1rem]"><strong>Start:</strong> {selectedEvent.start.toLocaleString()}</p>
+              <p className="text-left ml-[1rem]"><strong>End:</strong> {selectedEvent.end.toLocaleString()}</p>
+              <button onClick={() => Changer(-1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4 mr-[10rem] lg:mr-[50rem]">
+                <FaArrowLeft />
+              </button>
+              <button onClick={() => Changer(1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4">
+                <FaArrowRight />
+              </button>
+          </div>
+          )}
+
+          <img src={mountains} alt="Flat Mountains" className="relative top-[-5rem] mb-0 z-10 lg:top-[-45rem]"/>
+        </div>
+
         <Footer />
       </div>
     </>
