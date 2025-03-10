@@ -8,6 +8,8 @@ import News from './NewsPage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import EaglesNest from './EaglesNest';
 import ResourcesPage from './ResourcesPage';
+import AdminLogin from './AdminLogin';
+import AdminPage from './AdminPage';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home />},
@@ -16,7 +18,8 @@ const router = createBrowserRouter([
   { path: '/news', element: <News />},
   { path: '/eagles-nest', element: <EaglesNest/>},
   { path: '/resources', element: <ResourcesPage />},
-
+  { path: '/yiVHQSLPA5z4bWJ', element: <AdminLogin />},
+  { path: '/iHEID1JWLUto8s7', element: <AdminPage />}
 ])
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
