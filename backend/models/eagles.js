@@ -7,6 +7,6 @@ const eagleSchema = new mongoose.Schema({
     date: { type: Date, default: Date.now },
     rank: { type: String, required: true },
     img_url: { type: String, required: true},
-}, { collection: 'Mock_Eagles' });
+}, { collection: 'Eagle_Scouts' });
 
 module.exports = mongoose.model('Eagle', eagleSchema);
