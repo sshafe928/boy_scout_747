@@ -61,7 +61,7 @@ const Footer = () => {
             </div>
             
             {/* Social Icons - Desktop */}
-            <div className='hidden lg:block lg:bg-brand-primary-black lg:flex lg:justify-center lg:pb-4'>
+            <div className='hidden lg:bg-brand-primary-black lg:flex lg:justify-center lg:pb-4'>
                 <div className="hidden lg:mx-auto lg:flex lg:items-center lg:gap-4">
                     <a href="https://www.instagram.com/troop747phoenix/" target="_blank" rel="noopener noreferrer">
                         <LuInstagram className="text-brand-primary-gold size-7"/>

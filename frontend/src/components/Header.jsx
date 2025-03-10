@@ -43,22 +43,10 @@ const Header = () => {
         <header className="relative">
             {/* Mobile Header */}
             <nav className="flex items-center justify-between h-24 bg-brand-primary-black text-white px-4 lg:shadow-xl z-30 relative">
-                <div className="flex items-center gap-2 lg:gap-4 lg:ml-4">
+                <Link to="/" className="flex items-center gap-2 lg:gap-4 lg:ml-4">
                     <img src={Logo} alt="logo" className="size-16 bg-white rounded-full"/>
                     <h1 className="text-2xl lg:text-3xl">TROOP 747</h1>
-                </div>
-                
-                {/* Desktop Search Bar - Hidden on mobile */}
-                <div className="hidden lg:flex border border-neutral-400 rounded-2xl items-center px-2 py-1 relative left-32 -mr-4">
-                    <input 
-                        type="search" 
-                        name="search" 
-                        id="search" 
-                        placeholder='Search...' 
-                        className='outline-none pl-2 border-0 bg-transparent placeholder:text-sm placeholder:font-Inter placeholder:text-neutral-400'
-                    />
-                    <IoMdSearch className='search-icon' onChange={(e) => handleSearch(e)} />
-                </div>
+                </Link>
                 
                 {/* Desktop Navigation Links - Hidden on mobile */}
                 <div className='hidden lg:flex justify-around gap-8 w-1/3 relative right-14'>
