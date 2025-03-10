@@ -18,7 +18,6 @@ const Footer = () => {
                     <Link to="/news">News</Link>
                     <Link to="/calendar">Calendar</Link>
                     <Link to="/photos">Photos</Link>
-                    <Link to="/admins">For Admins</Link>
                 </div>
                 
                 {/* Meeting Info - Different position based on screen size */}
@@ -47,7 +46,6 @@ const Footer = () => {
                         <li className='mb-2'><Link to="/news" className="text-brand-primary-gold">News</Link></li>
                         <li className='mb-2'><Link to="/calendar" className="text-brand-primary-gold">Calendar</Link></li>
                         <li className='mb-2'><Link to="/photos" className="text-brand-primary-gold">Photos</Link></li>
-                        <li><Link to="/admin" className="text-brand-primary-gold">For Admins</Link></li>
                     </ul>
                 </div>
                 
