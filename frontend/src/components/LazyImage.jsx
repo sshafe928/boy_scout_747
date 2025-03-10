@@ -1,5 +1,7 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
+import Skeleton from "@mui/material/Skeleton"
+
 
 const LazyImage = ({ src, alt, className = '', ...props }) => {
   const { ref, inView } = useInView({
@@ -17,9 +19,13 @@ const LazyImage = ({ src, alt, className = '', ...props }) => {
           {...props}
         />
       ) : (
-        <div className="h-64 w-full bg-gray-300 flex items-center justify-center">
-          <div className="w-8 h-8 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin" />
-        </div>
+        <Skeleton
+          variant='rounded'
+          className='w-full'
+          sx={{ 
+          paddingTop: '100%', 
+          height: 0, 
+        }} />
       )}
     </div>
   );
