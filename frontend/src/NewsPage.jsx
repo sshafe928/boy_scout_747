@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 
 const NewsPage = () => {
     const [formattedNews, setFormattedNews] = useState([]);
+    const [count, setCount] = useState(6)
 
     useEffect(() => {
         fetch('http://localhost:5000/api/news')
@@ -25,11 +26,11 @@ const NewsPage = () => {
                         location: news.location,
                     };
                 });
-                setFormattedNews(formatted);
+                setFormattedNews(formatted.slice(0, count));
             }
         })
         .catch(error => console.error('Error fetching news:', error));
-    }, []);
+    }, [count]);
     
     return (
         <>
