@@ -31,7 +31,7 @@ const EaglesNest = () => {
             }
         })
         .catch(error => console.error('Error fetching news:', error));
-    }, []);
+    }, [formattedEagles]);
     return (
         <>
         <Header/>

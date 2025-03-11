@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Logo from '../assets/Logo.png';
-import myImage from '../assets/scoutBg.png';
+import ScoutLawsSection from './ScoutLawsSection'
 import HomeEvent from './HomeEvent';
 
 const slides = [
@@ -142,7 +142,7 @@ const HomeMain = () => {
             </div>
 
             {/* Info Section */}
-            <section className='w-full pb-8 lg:pb-16'>
+            <section className='w-full pb-8 lg:pb-16 lg:h-[90vh]'>
                 {/* Header - Consistent across mobile/desktop */}
                 <header className='flex items-center rounded-b-xl shadow-xl mb-4 p-4 bg-white'>
                     <img src={Logo} alt="logo" className='h-16 w-16'/>
@@ -151,79 +151,63 @@ const HomeMain = () => {
                 </header>
                 
                 {/* Mobile & Desktop Content (Responsive Layout) */}
-                <div className='px-4 lg:w-11/12 lg:mx-auto lg:flex lg:gap-8 lg:px-8'>
+                <section className='px-4 flex flex-col lg:flex-row gap-8 lg:w-11/12 lg:mx-auto lg:my-12 lg:px-8'>
                     {/* Left Column */}
-                    <div className='lg:w-1/2'>
-                        <h2 className='font-bold text-xl mb-2 mt-8'>What is the Troop 747 Program?</h2>
-                        <p className='mb-6 text-gray-600'>The traditional Scouting program, Troop 747 follows Scouts BSA, where youth develop outdoor survival skills, self-confidence, and ethics through youth planned activities with increased attention to service, community engagement, and leadership.</p>
-                        
-                        <h2 className='font-bold text-xl mb-2 mt-12'>What Will I Do in Troop 747?</h2>
-                        <p className='mb-6 text-gray-600'>Troop 747 is where youth explore their interests and develop skills by participating in outdoor activities like hiking, camping, and canoeing. Scouts earn merit badges along the journey and work towards achieving Scouting's highest rank—Eagle Scout.</p>
-                        
-                        <h2 className='font-bold text-xl mb-2 mt-12'>How often does Troop 747 meet?</h2>
-                        <p className='mb-6 text-gray-600'>Troop 747 scouts meet every Tuesday.</p>
+                    <div className='flex flex-col gap-8 lg:gap-16 lg:w-1/2'>
+                        <div className='flex flex-col gap-2 lg:gap-4'>
+                            <h2 className='font-bold text-xl'>What is the Troop 747 Program?</h2>
+                            <p className='text-gray-600'>The traditional Scouting program, Troop 747 follows Scouts BSA, where youth develop outdoor survival skills, self-confidence, and ethics through youth planned activities with increased attention to service, community engagement, and leadership.</p>
+                        </div>
+                        <div className='flex flex-col gap-2 lg:gap-4'>
+                            <h2 className='font-bold text-xl'>What Will I Do in Troop 747?</h2>
+                            <p className='text-gray-600'>Troop 747 is where youth explore their interests and develop skills by participating in outdoor activities like hiking, camping, and canoeing. Scouts earn merit badges along the journey and work towards achieving Scouting's highest rank—Eagle Scout.</p>
+                        </div>
+                        <div className='flex flex-col gap-2 lg:gap-4'>
+                            <h2 className='font-bold text-xl'>How often does Troop 747 meet?</h2>
+                            <p className='text-gray-600'>Troop 747 scouts meet every Tuesday.</p>
+                        </div>
                     </div>
                     
                     {/* Right Column */}
-                    <div className='lg:w-1/2'>
-                        <h2 className='font-bold text-xl mb-2 mt-8'>Who runs Troop 747?</h2>
-                        <p className='mb-6 text-gray-600'>Elected youth lead their troop and run the meetings at the guidance of the Scoutmaster and other adult leaders. Unlike Cub Scouts, Scouts BSA is a youth program planned mainly by the Scouts, not the parents.</p>
-                        
-                        <h2 className='font-bold text-xl mb-2 mt-12'>Why should I join Troop 747?</h2>
-                        <p className='mb-6 text-gray-600'>Scouts BSA prepares youth to make ethical and moral choices over their lifetimes by instilling the values of the Scout Oath and Law. Throughout their time in Scouting, Scouts learn the value of hard work and experience the thrill of seeing it pay off.</p>
-                        
+                    <div className='flex flex-col gap-8 lg:gap-16 lg:w-1/2'>
+                        <div className='flex flex-col gap-2 lg:gap-4'>
+                            <h2 className='font-bold text-xl'>Who runs Troop 747?</h2>
+                            <p className='text-gray-600'>Elected youth lead their troop and run the meetings at the guidance of the Scoutmaster and other adult leaders. Unlike Cub Scouts, Scouts BSA is a youth program planned mainly by the Scouts, not the parents.</p>
+                        </div>
+                        <div className='flex flex-col gap-2 lg:gap-4'>
+                            <h2 className='font-bold text-xl'>Why should I join Troop 747?</h2>
+                            <p className='text-gray-600'>Scouts BSA prepares youth to make ethical and moral choices over their lifetimes by instilling the values of the Scout Oath and Law. Throughout their time in Scouting, Scouts learn the value of hard work and experience the thrill of seeing it pay off.</p>
+                        </div>
                         {/* Learn More Button */}
-                        <div className='h-1/6 mt-16'>
+                        <div className='flex h-1/6'>
                             <Link to="/resources" className='bg-brand-accent-light py-3 px-6 rounded-full w-full h-full font-bold flex justify-center items-center'>LEARN MORE</Link>
                         </div>
                     </div>
-                </div>
+                </section>
             </section>
 
             {/* Section 2: Our Scouts */}
             <div className='border-b-8 border-brand-primary-black shadow-xl'>
-                <div className='text-center text-4xl lg:text-5xl bg-brand-primary-gold'>
-                    <h1 className='p-1 lg:p-2'>Our Scouts</h1>
+                <div className='text-center bg-brand-primary-gold'>
+                    <h1 className='pb-2 pt-4 lg:pt-6 lg:pb-4 text-5xl lg:text-6xl'>Our Scouts</h1>
                 </div>
 
-                {/* Mobile layout */}
-                <div className='lg:hidden'>
-                    <div className='text-center h-96 flex items-center' style={{backgroundImage: `url(${myImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}} >
-                        <div className='m-auto'>
-                            <h1 className='text-brand-primary-gold text-5xl font-Tienne'>Scouts Laws.</h1>
-                            <h2 className='text-4xl text-white mt-10 font-Inter font-extralight'>Trustworthiness</h2>
-                        </div>
-                    </div>
-                    
-                    <div className='bg-brand-accent-brown'>
-                        <div className='text-left w-4/5 mx-auto py-4'>
-                            <h1 className='text-brand-primary-gold text-3xl font-Tienne'>Our Mission</h1>
-                            <p className='text-white font-Inter font-light'>The Mission of the Boy Scouts of America is to prepare young people to make ethical and moral choices over their lifetimes by instilling in them the values of the Scout Oath and Scout Law.</p>
-                        </div>
-                        <div className='text-left w-4/5 mx-auto py-4'>
-                            <h1 className='text-brand-primary-gold text-3xl font-Tienne'>Scouts Oath</h1>
-                            <p className='text-white font-Inter font-light'>On my honor, I will do my best to do my duty to God and my country. To obey the Scout Law. To help other people at all times. To keep myself physically strong, mentally awake, and morally straight</p>
-                        </div>
-                    </div>
-                </div>
+                <div className='flex flex-col lg:flex-row w-full overflow-hidden h-[80vh]'>
+                    <ScoutLawsSection />
 
-                {/* Desktop layout */}
-                <div className="hidden lg:flex h-[600px] w-screen overflow-hidden">
-                    <div className='flex-1 text-center flex items-center' style={{backgroundImage: `url(${myImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>
-                        <div className='m-auto w-full'>
-                            <h1 className='text-brand-primary-gold text-7xl font-Tienne'>Scouts Laws.</h1>
-                            <h2 className='text-6xl text-white mt-10 font-Inter font-extralight'>Trustworthiness</h2>
-                        </div>
-                    </div>
                     <div className='flex-1 bg-brand-accent-brown flex flex-col justify-evenly'>
                         <div className='text-left w-4/5 mx-auto py-4'>
-                            <h1 className='text-brand-primary-gold text-5xl font-Tienne pb-5'>Our Mission</h1>
-                            <p className='text-white font-Inter font-light text-2xl'>The Mission of the Boy Scouts of America is to prepare young people to make ethical and moral choices over their lifetimes by instilling in them the values of the Scout Oath and Scout Law.</p>
+                            <h1 className='text-brand-primary-gold text-3xl lg:text-5xl font-Tienne pb-2 lg:pb-5'>Our Mission</h1>
+                            <p className='text-white font-Inter font-light lg:text-2xl'>
+                                The Mission of the Boy Scouts of America is to prepare young people to make ethical and moral choices over their lifetimes by instilling in them the values of the Scout Oath and Scout Law.
+                            </p>
                         </div>
 
                         <div className='text-left w-4/5 mx-auto py-4'>
-                            <h1 className='text-brand-primary-gold text-5xl font-Tienne pb-5'>Scouts Oath</h1>
-                            <p className='text-white font-Inter font-light text-2xl'>On my honor, I will do my best to do my duty to God and my country. To obey the Scout Law. To help other people at all times. To keep myself physically strong, mentally awake, and morally straight</p>
+                            <h1 className='text-brand-primary-gold text-3xl lg:text-5xl font-Tienne pb-2 lg:pb-5'>Scouts Oath</h1>
+                            <p className='text-white font-Inter font-light lg:text-2xl'>
+                                On my honor, I will do my best to do my duty to God and my country. To obey the Scout Law. To help other people at all times. To keep myself physically strong, mentally awake, and morally straight
+                            </p>
                         </div>
                     </div>
                 </div>
