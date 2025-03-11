@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 const NewsPage = () => {
     const [formattedNews, setFormattedNews] = useState([]);
     // Change this to control the initial number of items
-    const [visibleItemCount, setVisibleItemCount] = useState(3);
+    const [visibleItemCount, setVisibleItemCount] = useState(6);
     // Initially empty until data is loaded
     const [displayedData, setDisplayedData] = useState([]);
 
@@ -51,7 +51,7 @@ const NewsPage = () => {
         <Header/>
         <body style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
             {/* Mobile Version of News Page */}
-            <div className='flex flex-col my-8 gap-8 flex-wrap items-center justify-center sm:flex-row'>
+            <div className='flex flex-col my-14 gap-8 flex-wrap items-center justify-center sm:flex-row'>
                 {displayedData.map((news, index) => {
                     return (
                         <div key={news.title} className={`relative font-Tienne p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
