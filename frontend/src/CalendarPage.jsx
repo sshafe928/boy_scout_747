@@ -4,7 +4,6 @@ import moment from 'moment';
 import './scss/calendar.css';
 import React, { useEffect, useState } from 'react';
 import Footer from './components/Footer';
-import mountains from './assets/flat-mountains.png'
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 
@@ -70,13 +69,14 @@ function BigCalendar() {
     setIndex(newIndex)
     setSelectedEvent(formatted[newIndex]);
 
-  }  
+  }
   return (
     <>
-      <div className="overflow-x-hidden h-auto bg-brand-primary-gold">
-        <Header />
-        <div className="w-screen">
-          <div className=" w-[90vw] h-[60vh] md:w-[70vw] md:h-[80vh] bg-white m-auto mt-[4vh] p-1">
+    <Header />
+      <div className="overflow-x-hidden h-auto bg-brand-primary-gold pb-16" style={{backgroundImage: 'url(https://res.cloudinary.com/dipxoeh1d/image/upload/v1741729728/flat-mountains_bl2v3j.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        
+        <div className="w-full">
+          <div className=" w-[90vw] h-[60vh] md:w-[70vw] md:h-[80vh] bg-white m-auto rounded-lg mt-[4vh] p-1">
             <div className=" w-[89vw] h-[59vh] md:w-[69vw] md:h-[79vh]">
               <Calendar
                 localizer={localizer}
@@ -88,12 +88,10 @@ function BigCalendar() {
               />
             </div>
           </div>
-        </div>
-{/* Bottom half of the webpage */}
-        <div className="mb-[-5rem] lg:mb-[-25rem]">
 
+{/* Bottom half of the webpage */}
           {selectedEvent && (
-            <div className="relative top-[5rem] p-2 lg:w-[70vw] w-[80vw] m-auto mb-0 bg-white border rounded-lg text-center z-50" id="eventer">    
+            <div className="relative top-[5rem] p-2 lg:w-[70vw] lg:bottom-[-45rem] w-[80vw] m-auto mb-0 bg-white border rounded-lg text-center z-50" id="eventer">    
               <img src={selectedEvent.img_url} alt={selectedEvent.title} className="rounded-[10px] lg:place-self-center lg:mt-5 lg:w-[60vw]" />
               <h2 className="text-[1.5rem] font-bold mt-[1rem]">{selectedEvent.title}</h2>
               <p className="mt-[0.5rem]"> {selectedEvent.description}</p>
@@ -109,12 +107,11 @@ function BigCalendar() {
               </button>
           </div>
           )}
-
-          <img src={mountains} alt="Flat Mountains" className="relative top-[-5rem] mb-0 z-10 lg:top-[-45rem]"/>
         </div>
 
-        <Footer />
+        
       </div>
+      <Footer />
     </>
   );
 }
