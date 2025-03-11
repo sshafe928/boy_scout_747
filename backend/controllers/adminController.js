@@ -22,4 +22,14 @@ const loginAdmin = async (req, res) => {
   }
 };
 
-module.exports = { loginAdmin };
+const getAdmins = async (req, res) => {
+  try {
+      const admins = await Admin.find({});
+      res.status(200).json({ success: true, data: admins });
+  } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+
+module.exports = { loginAdmin, getAdmins };
