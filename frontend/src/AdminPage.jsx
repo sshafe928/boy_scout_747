@@ -33,7 +33,7 @@ const AdminPage = () => {
             const data = await response.json();
 
             if (response.ok) {
-                setMessage('News created successfully');
+                setMessage('Created successfully');
                 setTitle('');
                 setDescription('');
                 setLocation('');
@@ -53,26 +53,15 @@ const AdminPage = () => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Title:</label>
-                    <input
-                        type="text"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
+                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
                 </div>
                 <div>
                     <label>Description:</label>
-                    <textarea
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
+                    <textarea value={description} onChange={(e) => setDescription(e.target.value)}/>
                 </div>
                 <div>
                     <label>Location:</label>
-                    <input
-                        type="text"
-                        value={location}
-                        onChange={(e) => setLocation(e.target.value)}
-                    />
+                    <input type="text" value={location} onChange={(e) => setLocation(e.target.value)}/>
                 </div>
                 <button type="submit">Create News</button>
             </form>
