@@ -1,82 +1,82 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
 const NewsPage = () => {
-    
+    const [formattedNews, setFormattedNews] = useState([]);
+    // Change this to control the initial number of items
+    const [visibleItemCount, setVisibleItemCount] = useState(6);
+    // Initially empty until data is loaded
+    const [displayedData, setDisplayedData] = useState([]);
 
-    const sampleEvents = [
-        {
-            title: 'Boy Scout 747 Tour Begins in May',
-            month: 'July',
-            day: '15',
-            time: '2:00 PM to 3:30 PM',
-            content: 'The Boy Scout 747 Tour will begin in May, 2022, with the first stop being at the Eagle Nest. The tour will cover various activities and events, including camping, hiking, and birdwatching.'
-        },
-        {
-            title: 'Community Art Fair',
-            month: 'August',
-            day: '10',
-            time: '10:00 AM to 5:00 PM',
-            content: 'Join us for the annual Community Art Fair, where local artists showcase their paintings, sculptures, and crafts. Enjoy live music, food stalls, and interactive art sessions!'
-        },
-        {
-            title: 'Astronomy Night: Meteor Shower Viewing',
-            month: 'September',
-            day: '21',
-            time: '8:30 PM to 11:00 PM',
-            content: 'Experience a spectacular meteor shower at our special Astronomy Night event. Telescopes will be available, and experts will provide insights on celestial phenomena.'
-        },
-        {
-            title: 'Charity Fun Run for Education',
-            month: 'October',
-            day: '5',
-            time: '7:00 AM to 11:00 AM',
-            content: 'Participate in our 5K and 10K Charity Fun Run to raise funds for local schools. Register online to receive a race bib and T-shirt. Refreshments and medals for participants!'
-        },
-        {
-            title: 'Haunted House Experience',
-            month: 'October',
-            day: '29',
-            time: '6:00 PM to 10:00 PM',
-            content: 'Get ready for a spine-chilling Haunted House Experience! Dare to enter and navigate through eerie corridors filled with surprises. Suitable for ages 12 and up.'
-        },
-        {
-            title: 'Thanksgiving Community Feast',
-            month: 'November',
-            day: '23',
-            time: '4:00 PM to 7:00 PM',
-            content: 'Celebrate Thanksgiving with the community! Enjoy a delicious meal, live music, and warm conversations. Free entry, but donations are welcome.'
-        },
-        {
-            title: 'Winter Wonderland Festival',
-            month: 'December',
-            day: '15',
-            time: '3:00 PM to 9:00 PM',
-            content: 'Step into a magical Winter Wonderland with festive lights, ice skating, holiday markets, and a visit from Santa! Fun for all ages.'
-        }
-    ];
-    
+    useEffect(() => {
+        fetch('http://localhost:5000/api/news')
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.success) {
+                const formatted = data.data.map((news) => {
+                    const date = new Date(news.date);
+                    const year = date.getFullYear();
+                    const month = date.toLocaleString('en-US', { month: 'long' });
+                    const day = date.getDate();
+
+                    return {
+                        title: news.title,
+                        year,
+                        month,
+                        day,
+                        description: news.description,
+                        location: news.location,
+                    };
+                });
+                setFormattedNews(formatted);
+                // Set initial displayed data
+                setDisplayedData(formatted.slice(0, visibleItemCount));
+            }
+        })
+        .catch(error => console.error('Error fetching news:', error));
+    }, []);
+
+    useEffect(() => {
+        setDisplayedData(formattedNews.slice(0, visibleItemCount)); // Update displayedData when formattedNews updates
+    }, [formattedNews, visibleItemCount]);
+
+    // Handler for the "Load More" button
+    const handleLoadMore = () => {
+        setVisibleItemCount(prevCount => prevCount + 2); // Load 3 more items at a time
+    };
 
     return (
         <>
         <Header/>
-        {/* Mobile Version of News Page */}
-        {sampleEvents.map((event) => {
-
-            return (
-
-                <div key={event.title} className="p-8 border-b border-gray-300 bg-brand-accent-warm flex flex-col mx-auto my-6 w-4/5">
-                    <h3 className='text-2xl'>{event.month}</h3>
-                    <h1 className='text-4xl py-4 font-bold'>{event.day}</h1>
-                    <p>{event.title}</p>
-                    <p>{event.time}</p>
+        <body style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+            {/* Mobile Version of News Page */}
+            <div className='flex flex-col my-14 gap-8 flex-wrap items-center justify-center sm:flex-row'>
+                {displayedData.map((news, index) => {
+                    return (
+                        <div key={news.title} className={`relative font-Tienne p-8 border-b border-gray-300 flex flex-col w-4/5 h-64 sm:w-1/3 lg:w-1/4 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>
+                            <div className="flex justify-between">
+                                <h3 className='text-2xl'>{news.month}</h3>
+                                <h3 className="text-2xl">{news.year}</h3>
+                            </div>
+                            <h1 className='text-5xl py-4 font-bold'>{news.day}</h1>
+                            <p className='text-lg pb-4'>{news.title}</p>
+                            <p className='font-semibold'>{news.time}</p>
+                            {/* The content that will display over the element when hovered over */}
+                            <div className={`flex justify-center text-center items-center absolute inset-y-0 left-0 w-full text-xl p-5 opacity-0 transition ease-in-out duration-500 hover:opacity-100 ${index % 2 !== 0 ? "bg-brand-accent-light" : "bg-brand-accent-warm text-white"}`}>{news.description}</div>
+                        </div>
+                    );
+                })}
+            </div>
+            {visibleItemCount < formattedNews.length && (
+                <div className='text-center my-auto mb-8'>
+                    <button onClick={handleLoadMore} className='bg-black w-4/5 text-2xl p-4 text-white md:w-2/5 md:bg-white md:bg-opacity-30 lg:w-1/5'>Load More Events</button>
                 </div>
-            )
-        })}
+            )}
+        </body>
         <Footer/>
         </>
-    )
+    );
 }
 
-export default NewsPage
+export default NewsPage;

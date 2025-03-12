@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
 import greyLogo from '../assets/grey-boys-scouts-logo.png'
+import { Link } from 'react-router-dom'
 
 
 export default function InfoDropdown() {
@@ -9,81 +11,138 @@ export default function InfoDropdown() {
   };
 
   return (
-    <>
-    <div style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}} className="w-[100vw] h-[255vh] md:h-auto pt-[5rem]">
-
-    {/* Contains all of the resources */}
-
-    <div className="w-[90vw] h-[120vh] place-self-center border-4 mb-[4rem] bg-white border-brand-primary-gold">
-        <div className="w-[88vw] h-[18vh] text-black bg-brand-accent-light uppercase text-center place-self-center text-[1.5rem] md:w-[80vw] md:h-[7vh] md:mt-8 md:place-self-center md:text-[2rem] md:uppercase md:text-white md:text-center md:bg-brand-primary-gold ">
-            <h2>Important forms and resources for troop 747</h2>
-        </div>
-
-        <div className="md:columns-2 mt-[5rem]">
-
-        {/* Dropdowns Resources */}
-      <div className="ml-[1.4rem] columns-1 md:ml-16">
-
-      <div className="mb-[1rem]">
-        <button onClick={() => toggleDropdown("permissionSlips")} className="w-[75vw] h-[7vh] uppercase text-white text-[1.3rem] text-center bg-brand-primary-gold md:w-[40vw] md:text-[1.5rem] md:bg-brand-accent-light">Permission Slips ▼</button>
-
-        {openDropdown === "permissionSlips" && (
-          <div>
-            <p>dnasjldals lsjdnasjldalnksdalasljn skajdnajdaksdna jndasjdaksdnak</p>
-          </div>
-        )}
-      </div>
-
-      <div className="mb-[1rem]">
-        <button onClick={() => toggleDropdown("healthcareForms")} className="w-[75vw] h-[7vh] uppercase text-center text-white text-[1.3rem] bg-brand-primary-gold md:w-[40vw] md:text-[1.5rem] md:bg-brand-accent-light">Healthcare Forms ▼</button>
-
-        {openDropdown === "healthcareForms" && (
-          <div>
-            <p>dnasjldals lsjdnasjldalnksdalasljn skajdnajdaksdna jndasjdaksdnak</p>
-          </div>
-        )}
-      </div>
-
-      <div className="mb-[1rem]">
-        <button onClick={() => toggleDropdown("otherResources")} className="w-[75vw] h-[7vh] uppercase text-center text-[1.3rem] text-white bg-brand-primary-gold md:w-[40vw] md:text-[1.5rem] md:bg-brand-accent-light">Other Resources ▼</button>
-
-        {openDropdown === "otherResources" && (
-          <div>
-            <p>dnasjldals lsjdnasjldalnksdalasljn skajdnajdaksdna jndasjdaksdnak</p>
-          </div>
-        )}
+    <div className="w-full h-full p-6" style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+      <div className="flex flex-col items-center border-4 border-brand-accent-warm bg-brand-accent-yellow lg:p-8">
+        <header className="bg-brand-accent-light lg:bg-brand-primary-gold text-black lg:text-white text-3xl lg:text-4xl uppercase w-full text-center p-4 mb-12">IMPORTANT FORMS AND RESOURCES</header>
+        <article className="flex flex-col items-center w-full lg:items-stretch lg:flex-row">
+          <section className="flex flex-col text-xl w-5/6 lg:w-1/2 justify-around">
+            {/* Permission Slips Dropdown */}
+            <div onClick={() => toggleDropdown("permissionSlips")} className="w-full px-2 py-4 uppercase text-brand-primary-brown text-3xl text-center bg-brand-primary-gold cursor-pointer">
+              {/* Title */}
+              <p className="flex justify-center gap-4 text-white">Permission Slips <FaChevronDown className={`transition-transform duration-300 ${openDropdown === "permissionSlips" ? "rotate-180" : ""}`} /></p>
+              <section className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${openDropdown === "permissionSlips" ? "max-h-96" : "max-h-0"}`}>
+                <div className="flex flex-col border-2 border-brand-accent-brown-light p-4 text-xl bg-brand-accent-light">
+                  {/* Link 1 */}
+                  <div className="relative group hover:text-brand-accent-brown transition">
+                    <Link href="one.pdf">Boy Scout Permission Slip</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                  {/* Link 2 */}
+                  <div className="relative group hover:text-brand-accent-brown transition">
+                    <Link href="two.pdf">PDF 2</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                  {/* Link 3 */}
+                  <div className="relative group hover:text-brand-accent-brown transition">
+                    <Link href="three.pdf">PDF 3</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                </div>
+              </section>
+            </div>
+            {/* Healthcare Forms Dropdown */}
+            <div onClick={() => toggleDropdown("healthcareForms")} className="w-full px-2 py-4 uppercase text-brand-primary-brown text-3xl text-center bg-brand-primary-gold cursor-pointer">
+              {/* Title */}
+              <p className="flex justify-center gap-4 text-white">Healthcare Forms <FaChevronDown className={`transition-transform duration-300 ${openDropdown === "healthcareForms" ? "rotate-180" : ""}`} /></p>
+              <section className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${openDropdown === "healthcareForms" ? "max-h-96" : "max-h-0"}`}>
+                <div className="flex flex-col border-2 border-brand-accent-brown-light p-4 text-xl bg-brand-accent-light">
+                  {/* Link 1 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="one.pdf">Form 1</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                  {/* Link 2 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="two.pdf">Form 2</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                  {/* Link 3 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="three.pdf">Form 3</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                </div>
+              </section>
+            </div>
+            {/* Scouter Resources Dropdown */}
+            <div onClick={() => toggleDropdown("scouterResources")} className="w-full px-2 py-4 uppercase text-brand-primary-brown text-3xl text-center bg-brand-primary-gold cursor-pointer">
+              {/* Title */}
+              <p className="flex justify-center gap-4 text-white">Scouter Resources <FaChevronDown className={`transition-transform duration-300 ${openDropdown === "scouterResources" ? "rotate-180" : ""}`} /></p>
+              <section className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${openDropdown === "scouterResources" ? "max-h-96" : "max-h-0"}`}>
+                <div className="flex flex-col border-2 border-brand-accent-brown-light p-4 text-xl bg-brand-accent-light">
+                  {/* Link 1 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="one.pdf">Resource 1</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                  {/* Link 2 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="two.pdf">Resource 2</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                  {/* Link 3 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="three.pdf">Resource 3</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                </div>
+              </section>
+            </div>
+            {/* Troop Resources Dropdown */}
+            <div onClick={() => toggleDropdown("troopResources")} className="w-full px-2 py-4 uppercase text-brand-primary-brown text-3xl text-center bg-brand-primary-gold cursor-pointer">
+              {/* Title */}
+              <p className="flex justify-center gap-4 text-white">Troop Resources <FaChevronDown className={`transition-transform duration-300 ${openDropdown === "troopResources" ? "rotate-180" : ""}`} /></p>
+              <section className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${openDropdown === "troopResources" ? "max-h-96" : "max-h-0"}`}>
+                <div className="flex flex-col border-2 border-brand-accent-brown-light p-4 text-xl bg-brand-accent-light">
+                  {/* Link 1 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="one.pdf">Resource 1</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                  {/* Link 2 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="two.pdf">Resource 2</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                  {/* Link 3 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="three.pdf">Resource 3</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                </div>
+              </section>
+            </div>
+            {/* Eagle Resources Dropdown */}
+            <div onClick={() => toggleDropdown("eagleResources")} className="w-full px-2 py-4 uppercase text-brand-primary-brown text-3xl text-center bg-brand-primary-gold cursor-pointer">
+              {/* Title */}
+              <p className="flex justify-center gap-4 text-white">Eagle Resources <FaChevronDown className={`transition-transform duration-300 ${openDropdown === "eagleResources" ? "rotate-180" : ""}`} /></p>
+              <section className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${openDropdown === "eagleResources" ? "max-h-96" : "max-h-0"}`}>
+                <div className="flex flex-col border-2 border-brand-accent-brown-light p-4 text-xl bg-brand-accent-light">
+                  {/* Link 1 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="one.pdf">Resource 1</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                  {/* Link 2 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="two.pdf">Resource 2</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                  {/* Link 3 */}
+                  <div className="relative group hover:text-brand-primary-brown transition">
+                    <Link href="three.pdf">Resource 3</Link>
+                    <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+          <section className="flex justify-center items-center w-1/2 height-full">
+            <img src={greyLogo} alt="Grey Boy Scouts Logo" />
+          </section>
+        </article>
       </div>
     </div>
-
-        {/* Grey Boys Scouts Logo */}
-          <div className="md:ml-[5rem]">
-            <img src={greyLogo} alt="Boys Scouts Logo"/>
-          </div>
-        </div>
-        </div>
-
-        {/* bottom half of the page */}
-        <div className=" object-contain h-auto md:columns-2">
-          {/* The hover image thing??? Im not too sure */}
-          <div className="hidden md:bg-white md:flex md:justify-center md:items-center ml-[2.2rem] md:border-none md:w-[40vw] md:h-[60vh] md: mt-0 md:ml-[10rem]">
-            <div className=" items-center hover:scale-110 duration-300 ease-in-out md:bg-[#D9D9D9] md:w-[30vw] md:h-[45vh]">
-              {/* text bar??? */}
-              <p className=" md:text-white md:w-[25vw] md:h-[7vh] md:opacity-100 md:flex justify-self-center mt-[18rem] md:border-none md:hover:opacity-100 duration-300 ease-in-out"></p>
-            </div>
-          </div>
-
-        <div className=" mt-[-18rem] md:mt-[-10rem] md:mt-[0]">
-          <div className="w-[80vw] h-[15vh] place-self-center bg-white border-4 mt-[20rem] mb-[2rem] border-brand-primary-gold md:w-[30vw] md:h-[20vh]"></div>
-          <div className="w-[80vw] h-[15vh] place-self-center bg-white border-4 mb-[2rem] border-brand-primary-gold md:w-[30vw] md:h-[20vh]"></div>
-          <div className="w-[80vw] h-[15vh] place-self-center bg-white border-4 mb-[2rem] border-brand-primary-gold md:w-[30vw] md:h-[20vh]"></div>
-        </div>
-        <div className="bg-white border-brand-primary-gold border-4 w-[80vw] h-[35vh] flex justify-center items-center ml-[2.2rem] md:hidden">
-            <div className="w-[85vw] h-[7vh] bg-[#6B5A18] place-self-center mt-[42.2vh] md:hidden">there will be text here</div>
-            </div>
-            <div className="bg-[#D9D9D9] w-[80vw] h-[7vh] mt-[6rem] mb-[2rem] place-self-center md:hidden">Image description</div>
-        </div>
-    </div>
-    </>
   );
 
 }

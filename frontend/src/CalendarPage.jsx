@@ -4,67 +4,114 @@ import moment from 'moment';
 import './scss/calendar.css';
 import React, { useEffect, useState } from 'react';
 import Footer from './components/Footer';
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 const localizer = momentLocalizer(moment);
+let formatted
+const Converter = (utcData) =>{
+  const date = new Date(utcData);
+  date.setHours(date.getHours() +7);
+  return date;
+}
+
 
 function BigCalendar() {
   const [formattedEvents, setFormattedEvents] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [index, setIndex] = useState(0)
+
 
   useEffect(() => {
     fetch('http://localhost:5000/api/events')
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          setFormattedEvents(
-            data.data.map((event) => ({
-              title: event.title,
-              type: event.type,
-              description: event.description,
-              location: event.location,
-              start: new Date(event.start),
-              end: new Date(event.end),
-            }))
-          );
-        } else {
+          formatted = data.data.map((event) => ({
+            title: event.title,
+            type: event.type,
+            description: event.description,
+            location: event.location,
+            start: Converter(event.start),
+            end: Converter(event.end),
+            img_url: event.img_url
+          }));
+          formatted.sort((a,b) => new Date(a.start) - new Date(b.start))
+          setFormattedEvents(formatted);
+          
+          setSelectedEvent(formatted[0]);
+        } 
+
+        else {
           console.error('Failed to fetch events:', data.message);
         }
       })
       .catch((err) => console.error('Error fetching events:', err));
   }, []);
 
+  const handleEventClick = (event) =>{
+    setSelectedEvent(event);
+      const section = document.getElementById("eventer")
+      if(section){
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+
+  }
+
+  const Changer = (Value) =>{
+    let newIndex = index + Value;
+
+    if(newIndex < 0){
+      newIndex = 0
+    } else if (newIndex >= formatted.length){
+      newIndex = 0
+    }
+    setIndex(newIndex)
+    setSelectedEvent(formatted[newIndex]);
+
+  }
   return (
     <>
-      <body className="overflow-x-hidden bg-brand-primary-gold">
-        <Header />
-        <div className="w-screen">
-          <div className="lg:w-[90vw] w-[80vw] h-[60vh] bg-white m-auto mt-[4vh] p-1">
-            <div className="lg:w-[89vw] w-[79vw] h-[59vh]">
+    <Header />
+      <div className="overflow-x-hidden h-auto bg-brand-primary-gold pb-16" style={{backgroundImage: 'url(https://res.cloudinary.com/dipxoeh1d/image/upload/v1741729728/flat-mountains_bl2v3j.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        
+        <div className="w-full">
+          <div className=" w-[90vw] h-[60vh] md:w-[70vw] md:h-[80vh] bg-white m-auto rounded-lg mt-[4vh] p-1">
+            <div className=" w-[89vw] h-[59vh] md:w-[69vw] md:h-[79vh]">
               <Calendar
                 localizer={localizer}
                 events={formattedEvents}
                 startAccessor="start"
                 endAccessor="end"
+                onSelectEvent={handleEventClick}
+                href="#eventer"
               />
             </div>
           </div>
+
+{/* Bottom half of the webpage */}
+          {selectedEvent && (
+            <div className="relative top-[5rem] p-2 lg:w-[70vw] lg:bottom-[-45rem] w-[80vw] m-auto mb-0 bg-white border rounded-lg text-center z-50" id="eventer">    
+              <img src={selectedEvent.img_url} alt={selectedEvent.title} className="rounded-[10px] lg:place-self-center lg:mt-5 lg:w-[60vw]" />
+              <h2 className="text-[1.5rem] font-bold mt-[1rem]">{selectedEvent.title}</h2>
+              <p className="mt-[0.5rem]"> {selectedEvent.description}</p>
+              <p className="text-left mt-[1rem] ml-[1rem]"><strong>Type:</strong> {selectedEvent.type}</p>
+              <p className="text-left ml-[1rem]"><strong>Location:</strong> {selectedEvent.location}</p>
+              <p className="text-left ml-[1rem]"><strong>Start:</strong> {selectedEvent.start.toLocaleString()}</p>
+              <p className="text-left ml-[1rem]"><strong>End:</strong> {selectedEvent.end.toLocaleString()}</p>
+              <button onClick={() => Changer(-1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4 mr-[10rem] lg:mr-[50rem]">
+                <FaArrowLeft />
+              </button>
+              <button onClick={() => Changer(1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4">
+                <FaArrowRight />
+              </button>
+          </div>
+          )}
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
-          <rect fill="#EDC736" width="1600" height="900" />
-          <polygon fill="#6d442f" points="957 450 539 900 1396 900" />
-          <polygon fill="#462d18" points="957 450 872.9 900 1396 900" />
-          <polygon fill="#704630" points="-60 900 398 662 816 900" />
-          <polygon fill="#482d18" points="337 900 398 662 816 900" />
-          <polygon fill="#734831" points="1203 546 1552 900 876 900" />
-          <polygon fill="#4b2e18" points="1203 546 1552 900 1162 900" />
-          <polygon fill="#754932" points="641 695 886 900 367 900" />
-          <polygon fill="#4d2e18" points="587 900 641 695 886 900" />
-          <polygon fill="#784b33" points="1710 900 1401 632 1096 900" />
-          <polygon fill="#502f18" points="1710 900 1401 632 1365 900" />
-          <polygon fill="#7b4d34" points="1210 900 971 687 725 900" />
-          <polygon fill="#522f18" points="943 900 1210 900 971 687" />
-        </svg>
-        <Footer />
-      </body>
+
+        
+      </div>
+      <Footer />
     </>
   );
 }
