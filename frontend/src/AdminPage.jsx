@@ -245,7 +245,6 @@ const AdminPage = () => {
             {/* News Section */}
             <div className="mb-10">
                 <h2 className="text-2xl font-bold mb-4">News Section</h2>
-                <h3 className="text-xl font-semibold mb-2">Latest News:</h3>
                 <div className="grid grid-cols-4 gap-5">
                     {news.title && (
                         <div className="border rounded-lg p-4 shadow-md bg-white">
@@ -255,7 +254,6 @@ const AdminPage = () => {
                         </div>
                     )}
                 </div>
-                <h3 className="text-xl font-semibold mt-4 mb-2">News List:</h3>
                 {newsList.length > 0 ? (
                     <div className="grid grid-cols-4 gap-5">
                         {newsList.map((item) => (
