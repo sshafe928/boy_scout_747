@@ -100,7 +100,7 @@ function BigCalendar() {
                 <p className="sm:text-left sm:ml-4"><strong>Location:</strong> {selectedEvent.location}</p>
                 <p className="sm:text-left sm:ml-4"><strong>Start:</strong> {selectedEvent.start.toLocaleString()}</p>
                 <p className="sm:text-left sm:ml-4"><strong>End:</strong> {selectedEvent.end.toLocaleString()}</p></div>
-              <button onClick={() => Changer(-1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4 mr-[10rem] lg:mr-[50rem]">
+              <button onClick={() => Changer(-1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4 mr-40 lg:mr-[50vw]">
                 <FaArrowLeft />
               </button>
               <button onClick={() => Changer(1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4">
