@@ -89,23 +89,37 @@ function BigCalendar() {
             </div>
           </div>
 
-{/* Bottom half of the webpage */}
           {selectedEvent && (
-            <div className="relative top-[10vh] p-2 lg:w-[70vw] lg:bottom-[-100vh] w-[80vw] m-auto mb-0 bg-white bg-opacity-75 border rounded-lg text-center z-50 mb-[10vh]" id="eventer">    
-              <img src={selectedEvent.img_url} alt={selectedEvent.title} className="rounded-[10px] lg:place-self-center lg:mt-5 lg:w-[60vw]" />
-              <h2 className="text-2xl font-bold mt-4">{selectedEvent.title}</h2>
-              <p className="mt-2"> {selectedEvent.description}</p>
-              <div className='lg:flex lg:flex-row lg:place-self-center mt-2 ml-4 place-items-start'>
-                <p className="sm:text-left sm:ml-4"><strong>Type:</strong> {selectedEvent.type}</p>
-                <p className="sm:text-left sm:ml-4"><strong>Location:</strong> {selectedEvent.location}</p>
-                <p className="sm:text-left sm:ml-4"><strong>Start:</strong> {selectedEvent.start.toLocaleString()}</p>
-                <p className="sm:text-left sm:ml-4"><strong>End:</strong> {selectedEvent.end.toLocaleString()}</p></div>
-              <button onClick={() => Changer(-1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4 mr-40 lg:mr-[50vw]">
-                <FaArrowLeft />
-              </button>
-              <button onClick={() => Changer(1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4">
-                <FaArrowRight />
-              </button>
+            <div className="relative top-[10vh] p-4 lg:w-[80vw] w-[90vw] m-auto bg-white bg-opacity-75 border rounded-lg text-center z-50 mb-[10vh]" id="eventer">
+            <div className="lg:flex lg:justify-between">
+              <div className="lg:w-[40%] w-full mb-4 lg:mb-0">
+                <img src={selectedEvent.img_url} alt={selectedEvent.title} className="rounded-[10px] lg:w-full lg:h-auto object-cover" />
+              </div>
+
+              <div className="lg:w-[55%] w-full lg:ml-8 flex flex-col justify-between">
+                <div className="flex justify-between items-center">
+                  <button onClick={() => Changer(-1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded">
+                    <FaArrowLeft />
+                  </button>
+                  
+                  <h2 className="text-2xl font-bold">{selectedEvent.title}</h2>
+                  
+                  <button onClick={() => Changer(1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded">
+                    <FaArrowRight />
+                  </button>
+                </div>
+          
+                <p className="my-8 text-lg">{selectedEvent.description}</p>
+          
+                {/* Bottom Left Descriptors (Inside the Right Column) */}
+                <div className="mt-auto  mb-4">
+                  <p className="text-sm"><strong>Type:</strong> {selectedEvent.type}</p>
+                  <p className="text-sm"><strong>Location:</strong> {selectedEvent.location}</p>
+                  <p className="text-sm"><strong>Start:</strong> {selectedEvent.start.toLocaleString()}</p>
+                  <p className="text-sm"><strong>End:</strong> {selectedEvent.end.toLocaleString()}</p>
+                </div>
+              </div>
+            </div>
           </div>
           )}
         </div>
