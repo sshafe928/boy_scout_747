@@ -49,13 +49,16 @@ function BigCalendar() {
       .catch((err) => console.error('Error fetching events:', err));
   }, []);
 
-  const handleEventClick = (event) =>{
+  const handleEventClick = (event) => {
     setSelectedEvent(event);
-      const section = document.getElementById("eventer")
-      if(section){
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-
+    
+    const section = document.getElementById("eventer");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+  
+      const offset = window.innerHeight / 1 - section.offsetHeight / 2;
+      window.scrollBy({ top: offset, behavior: "smooth" });
+    }
   }
 
   const Changer = (Value) =>{
@@ -111,7 +114,6 @@ function BigCalendar() {
           
                 <p className="my-8 text-lg">{selectedEvent.description}</p>
           
-                {/* Bottom Left Descriptors (Inside the Right Column) */}
                 <div className="mt-auto  mb-4">
                   <p className="text-sm"><strong>Type:</strong> {selectedEvent.type}</p>
                   <p className="text-sm"><strong>Location:</strong> {selectedEvent.location}</p>
