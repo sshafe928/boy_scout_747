@@ -1,5 +1,6 @@
 const Event = require('../models/events');
 
+// Gets a list of the events found using the Events.js in models
 const getEvents = async (req, res) => {
     try {
         const events = await Event.find({});
