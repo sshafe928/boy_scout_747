@@ -1,5 +1,6 @@
 const Photo = require('../models/Photos');
 
+// Gets a list of the photos found using the Photos.js in models
 const getPhotos = async (req, res) => {
   try {
     const photos = await Photo.find({});
@@ -9,4 +10,5 @@ const getPhotos = async (req, res) => {
   }
 };
 
+// Exports the photos gotten to be used elsewhere
 module.exports = { getPhotos };

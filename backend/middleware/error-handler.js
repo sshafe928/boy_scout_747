@@ -1,4 +1,6 @@
 const {CustomApiError} = require('../errors/custom-error');
+
+// Define custom error handlers
 const errorHandlerMiddleware = (err, req, res, next) => {
     console.error('Error:', err);  // Log full error details
     if (err instanceof CustomApiError) {

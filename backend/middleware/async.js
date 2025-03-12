@@ -1,3 +1,4 @@
+//wraps asyncronus route handlers or middleware functions
 const asyncWrapper = (fn) => {
     return async (req, res, next) => {
         try {

@@ -4,6 +4,7 @@ const { registerUser, loginUser, deleteUser } = require('../controllers/userCont
 const asyncWrapper = require('../middleware/async');
 const authMiddleware = require('../middleware/authMiddleware');
 
+// routes used to add and check user
 router.post('/register', asyncWrapper(registerUser));
 router.post('/login', asyncWrapper(loginUser));
 
