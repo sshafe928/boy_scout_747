@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 const NewsPage = () => {
     const [formattedNews, setFormattedNews] = useState([]);
     // Change this to control the initial number of items
-    const [visibleItemCount, setVisibleItemCount] = useState(6);
+    const [visibleItemCount, setVisibleItemCount] = useState(3);
     // Initially empty until data is loaded
     const [displayedData, setDisplayedData] = useState([]);
 
@@ -43,7 +43,7 @@ const NewsPage = () => {
 
     // Handler for the "Load More" button
     const handleLoadMore = () => {
-        setVisibleItemCount(prevCount => prevCount + 2); // Load 3 more items at a time
+        setVisibleItemCount(prevCount => prevCount + 3); // Load 3 more items at a time
     };
 
     return (
