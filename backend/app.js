@@ -1,11 +1,20 @@
 const express = require('express');
 const app = express();
 require('dotenv').config();
+const cloudinary = require('cloudinary').v2
+
 const cors = require('cors'); 
 
 app.use(cors());
 
-//connects file to the database
+//cloudinary configuration
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+})
+
+//connected :)
 const connectDB = require('./db/connect'); 
 connectDB(process.env.MONGOURI);
 
