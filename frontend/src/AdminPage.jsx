@@ -19,10 +19,12 @@ const AdminPage = () => {
         description: '',
     });
     const [eventsList, setEventsList] = useState([]);
+    const [adminList, setAdminList] = useState([]);
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [editingNews, setEditingNews] = useState(null);
     const [editingGallery, setEditingGallery] = useState(null);
     const [editingEvent, setEditingEvent] = useState(null);
+    const [setDeletingEvent, setSetDeletingEvent] = useState(null);
     const [pageSize] = useState(10);
 
     // Fetch news data
@@ -38,6 +40,24 @@ const AdminPage = () => {
                         location: event.location,
                     }));
                     setNewsList(newsData);
+                } else {
+                    console.error('Failed to fetch news:', data.message);
+                }
+            })
+            .catch((err) => console.error('Error fetching news:', err));
+    }, []);
+
+    // Fetch admin data
+    useEffect(() => {
+        fetch('http://localhost:5000/api/admin')
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.success) {
+                    const adminData = data.data.map((admin) => ({
+                        id: admin._id,
+                        email: admin.email,
+                    }));
+                    setAdminList(adminData);
                 } else {
                     console.error('Failed to fetch news:', data.message);
                 }
@@ -387,6 +407,28 @@ const AdminPage = () => {
                     <input type="text" name="img_url" placeholder="Image URL" className="p-2 border rounded" />
                     <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">Submit Event</button>
                 </form>
+            </div>
+
+            {/* Admin Section */}
+            <div>
+                <h2 className="text-2xl font-bold mb-4">Admins Section</h2>
+                <div className="grid grid-cols-4 gap-5">
+                
+                </div>
+                {adminList.length > 0 ? (
+                    <div className="grid grid-cols-4 gap-5">
+                        {adminList.map((admin) => (
+                            <div key={admin.id} className="border rounded-lg p-4 shadow-md bg-white">
+                                    <>
+                                        <h4 className="text-lg font-medium mb-2">{admin.email}</h4>
+                                        <button onClick={() => setDeletingEvent(admin.id)} className="bg-red-500 text-white px-4 py-2 rounded">Delete</button>
+                                    </>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p>No events yet.</p>
+                )}
             </div>
 
             <Footer />
