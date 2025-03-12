@@ -43,7 +43,7 @@ const NewsPage = () => {
 
     // Handler for the "Load More" button
     const handleLoadMore = () => {
-        setVisibleItemCount(prevCount => prevCount + 2); // Load 3 more items at a time
+        setVisibleItemCount(prevCount => prevCount + 3); // Load 3 more items at a time
     };
 
     return (
