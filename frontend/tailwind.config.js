@@ -28,10 +28,10 @@ theme: {
         xs: '2px',
       },
       boxShadow: {
-          'defaultShadow': '0, 10, 10, 0, rgb(0, 0, 0)'
+        'defaultShadow': '0, 10, 10, 0, rgb(0, 0, 0)'
       },
       translate: {
-          'neg-full': '-100%'
+        'neg-full': '-100%'
       }
     },
   },
