@@ -19,4 +19,6 @@ const upload = multer({ storage })
 router.post('/login', loginAdmin);
 router.get('/', getAdmins);
 
+router.post("/uploadPhoto", upload.single("image"), )
+
 module.exports = router;

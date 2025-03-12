@@ -10,11 +10,11 @@ const AdminPage = () => {
     const [news, setNews] = useState({
         title: '',
         description: '',
-        location: '',
+        img_url: '',
     });
     const [galleryList, setGalleryList] = useState([]);
     const [gallery, setGallery] = useState({
-        name: '',
+        title: '',
         url: '',
         description: '',
     });
@@ -173,8 +173,8 @@ const AdminPage = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const newPhoto = {
-            name: formData.get('name'),
-            url: formData.get('url'),
+            title: formData.get('name'),
+            img_url: formData.get('image-upload'),
             description: formData.get('description'),
         };
         setGallery(newPhoto);
@@ -409,7 +409,7 @@ const AdminPage = () => {
                 )}
                 <form onSubmit={handlePhotoSubmit} className="mt-5 flex gap-2">
                     <input type="text" name="name" placeholder="Photo Name" className="p-2 border rounded" />
-                    <input type="text" name="url" placeholder="Image URL" className="p-2 border rounded" />
+                    <input type="file" id="image-upload" name="image" accept="image/*" required />
                     <input type="text" name="description" placeholder="Description" className="p-2 border rounded" />
                     <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">Submit Photo</button>
                 </form>
