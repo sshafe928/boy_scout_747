@@ -91,14 +91,15 @@ function BigCalendar() {
 
 {/* Bottom half of the webpage */}
           {selectedEvent && (
-            <div className="relative top-[5rem] p-2 lg:w-[70vw] lg:bottom-[-45rem] w-[80vw] m-auto mb-0 bg-white border rounded-lg text-center z-50" id="eventer">    
+            <div className="relative top-[10vh] p-2 lg:w-[70vw] lg:bottom-[-100vh] w-[80vw] m-auto mb-0 bg-white bg-opacity-75 border rounded-lg text-center z-50 mb-[10vh]" id="eventer">    
               <img src={selectedEvent.img_url} alt={selectedEvent.title} className="rounded-[10px] lg:place-self-center lg:mt-5 lg:w-[60vw]" />
-              <h2 className="text-[1.5rem] font-bold mt-[1rem]">{selectedEvent.title}</h2>
-              <p className="mt-[0.5rem]"> {selectedEvent.description}</p>
-              <p className="text-left mt-[1rem] ml-[1rem]"><strong>Type:</strong> {selectedEvent.type}</p>
-              <p className="text-left ml-[1rem]"><strong>Location:</strong> {selectedEvent.location}</p>
-              <p className="text-left ml-[1rem]"><strong>Start:</strong> {selectedEvent.start.toLocaleString()}</p>
-              <p className="text-left ml-[1rem]"><strong>End:</strong> {selectedEvent.end.toLocaleString()}</p>
+              <h2 className="text-2xl font-bold mt-4">{selectedEvent.title}</h2>
+              <p className="mt-2"> {selectedEvent.description}</p>
+              <div className='lg:flex lg:flex-row lg:place-self-center mt-2 ml-4 place-items-start'>
+                <p className="sm:text-left sm:ml-4"><strong>Type:</strong> {selectedEvent.type}</p>
+                <p className="sm:text-left sm:ml-4"><strong>Location:</strong> {selectedEvent.location}</p>
+                <p className="sm:text-left sm:ml-4"><strong>Start:</strong> {selectedEvent.start.toLocaleString()}</p>
+                <p className="sm:text-left sm:ml-4"><strong>End:</strong> {selectedEvent.end.toLocaleString()}</p></div>
               <button onClick={() => Changer(-1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4 mr-[10rem] lg:mr-[50rem]">
                 <FaArrowLeft />
               </button>
