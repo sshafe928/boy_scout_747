@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import FloatingCarousel from './components/FloatingCarousel';
 
 const EaglesNest = () => {
     const [formattedEagles, setFormattedEagles] = useState([]);
@@ -37,10 +38,20 @@ const EaglesNest = () => {
             <Header/>
             <main className="min-h-screen w-full p-16" style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
                 {/* Eagle Scout Spotlight */}
-                <div className="bg-transparent lg:bg-brand-primary-gold text-white font-Tienne flex flex-col">
-                    <div className="hidden lg:flex justify-around">
-                        
+                <div className="bg-transparent lg:bg-brand-primary-gold text-white font-Tienne flex flex-col p-8">
+                    <div className="hidden lg:flex gap-6 justify-around">
+                        <div className="h-24 w-1/3 bg-brand-accent-light">
+                            {/* News Event for Eagle */}
+                        </div>
+                        <div className="w-2/3 text-white ">
+                            {/* Eagle Desc */}
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, placeat blanditiis. Nemo, necessitatibus dolorem. Quae, inventore! Neque sed omnis laudantium enim perspiciatis id fugiat. Unde eius consequuntur molestias quidem animi!
+                        </div>
                     </div>
+                    <div className="flex">
+                        <FloatingCarousel carouselImages={formattedEagles} />
+                    </div>
+                    
                 </div>
                 {/* Eagle Info */}
                 <div className="flex w-full gap-6 justify-center lg:h-[40vw]">

@@ -23,6 +23,9 @@ export default {
       },
       translate: {
         'neg-full': '-100%'
+      },
+      blur: {
+        xs: '2px',
       }
     },
   },
