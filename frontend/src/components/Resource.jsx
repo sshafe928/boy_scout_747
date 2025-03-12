@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import greyLogo from '../assets/grey-boys-scouts-logo.png'
+import birdLogo from '../assets/birdBadge.png'
 import { Link } from 'react-router-dom'
 
 
@@ -141,6 +142,34 @@ export default function InfoDropdown() {
             <img src={greyLogo} alt="Grey Boy Scouts Logo" />
           </section>
         </article>
+      </div>
+
+      {/* Lower Section */}
+      <div className="flex ">
+
+        <div className="w-1/2 flex items-center justify-center">
+          
+          <img src={birdLogo} alt="Boy Scouts Logo" className="w-1/2 height-full bg-white rounded-full p-5" style={{boxShadow: '-15px 20px'}}/>
+          
+        </div>
+
+        <div className="flex-1">
+          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32">
+            Section 1 (Contents, Official Policy, Rules and Regs, Special Regulations)
+          </div>
+
+          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32">
+            Section 2 (Cub Scout, Boy Scout, Venturing, Varsity, and Sea Scout Insignia) 
+          </div>
+
+          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32">
+            Section 3 (Training Awards, Honors & Recognition, Universal Insignia, Religious Emblems, Flags)
+          </div>
+
+          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32">
+            Section 4 (District & Council Committees, Index)
+          </div>
+        </div>
       </div>
     </div>
   );
