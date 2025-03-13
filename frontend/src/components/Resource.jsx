@@ -147,26 +147,26 @@ export default function InfoDropdown() {
       {/* Lower Section */}
       <div className="flex ">
 
-        <div className="w-1/2 flex items-center justify-center">
+        <div className="w-1/2 items-center justify-center hidden lg:flex">
           
-          <img src={birdLogo} alt="Boy Scouts Logo" className="w-1/2 height-full bg-white rounded-full p-5" style={{boxShadow: '-15px 20px'}}/>
+          <img src={birdLogo} alt="Boy Scouts Logo" className="w-1/2 height-1/2 bg-white rounded-full p-5" style={{boxShadow: '-25px 30px #EBBA00'}}/>
           
         </div>
 
         <div className="flex-1">
-          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32">
+          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32 lg:-translate-x-20 flex items-center justify-center p-5">
             Section 1 (Contents, Official Policy, Rules and Regs, Special Regulations)
           </div>
 
-          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32">
+          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32 flex items-center justify-center p-5">
             Section 2 (Cub Scout, Boy Scout, Venturing, Varsity, and Sea Scout Insignia) 
           </div>
 
-          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32">
+          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32 flex items-center justify-center p-5">
             Section 3 (Training Awards, Honors & Recognition, Universal Insignia, Religious Emblems, Flags)
           </div>
 
-          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32">
+          <div className="border-4 border-brand-accent-warm bg-brand-accent-yellow my-8 text-center h-32 lg:-translate-x-20 flex items-center justify-center p-5">
             Section 4 (District & Council Committees, Index)
           </div>
         </div>
