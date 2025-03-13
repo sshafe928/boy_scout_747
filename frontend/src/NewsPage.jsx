@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+// import Events
+
 const NewsPage = () => {
     const [formattedNews, setFormattedNews] = useState([]);
     // Change this to control the initial number of items

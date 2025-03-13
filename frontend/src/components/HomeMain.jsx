@@ -219,7 +219,7 @@ const HomeMain = () => {
                 {/* Event Cards */}
                 <div className="flex gap-6 justify-center flex-wrap">
                     {events.map((event) => (
-                        <Link to="/calendar"><HomeEvent key={event.title} img={event.img_url} title={event.title} desc={event.description}/></Link>
+                        <HomeEvent key={event.title} img={event.img_url} title={event.title} desc={event.description}/>
                     ))}
                 </div>
             </section>
