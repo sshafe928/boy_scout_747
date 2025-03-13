@@ -97,7 +97,7 @@ const HomeMain = () => {
                             <img 
                                 src={slide.bgImage} 
                                 alt={`Slide ${index + 1}`}
-                                className="absolute inset-0 w-full h-full object-cover lg:object-fill"
+                                className="absolute inset-0 w-full h-full object-cover blur-xs lg:blur-none lg:object-fill"
                             />
                             <div className="absolute inset-0 bg-black/30" /> {/* Overlay for better text readability */}
                             
@@ -219,7 +219,7 @@ const HomeMain = () => {
                 {/* Event Cards */}
                 <div className="flex gap-6 justify-center flex-wrap">
                     {events.map((event) => (
-                        <HomeEvent key={event.title} img={event.img_url} title={event.title} desc={event.description}/>
+                        <Link to="/calendar"><HomeEvent key={event.title} img={event.img_url} title={event.title} desc={event.description}/></Link>
                     ))}
                 </div>
             </section>

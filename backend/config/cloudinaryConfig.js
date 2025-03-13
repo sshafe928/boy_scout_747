@@ -7,6 +7,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_KEY_SECRET
 });
 
+// Makes a storage for new images and defines the usable image formats
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {

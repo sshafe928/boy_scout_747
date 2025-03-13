@@ -49,13 +49,16 @@ function BigCalendar() {
       .catch((err) => console.error('Error fetching events:', err));
   }, []);
 
-  const handleEventClick = (event) =>{
+  const handleEventClick = (event) => {
     setSelectedEvent(event);
-      const section = document.getElementById("eventer")
-      if(section){
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-
+    
+    const section = document.getElementById("eventer");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+  
+      const offset = window.innerHeight / 1 - section.offsetHeight / 2;
+      window.scrollBy({ top: offset, behavior: "smooth" });
+    }
   }
 
   const Changer = (Value) =>{
@@ -89,22 +92,36 @@ function BigCalendar() {
             </div>
           </div>
 
-{/* Bottom half of the webpage */}
           {selectedEvent && (
-            <div className="relative top-[5rem] p-2 lg:w-[70vw] lg:bottom-[-45rem] w-[80vw] m-auto mb-0 bg-white border rounded-lg text-center z-50" id="eventer">    
-              <img src={selectedEvent.img_url} alt={selectedEvent.title} className="rounded-[10px] lg:place-self-center lg:mt-5 lg:w-[60vw]" />
-              <h2 className="text-[1.5rem] font-bold mt-[1rem]">{selectedEvent.title}</h2>
-              <p className="mt-[0.5rem]"> {selectedEvent.description}</p>
-              <p className="text-left mt-[1rem] ml-[1rem]"><strong>Type:</strong> {selectedEvent.type}</p>
-              <p className="text-left ml-[1rem]"><strong>Location:</strong> {selectedEvent.location}</p>
-              <p className="text-left ml-[1rem]"><strong>Start:</strong> {selectedEvent.start.toLocaleString()}</p>
-              <p className="text-left ml-[1rem]"><strong>End:</strong> {selectedEvent.end.toLocaleString()}</p>
-              <button onClick={() => Changer(-1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4 mr-[10rem] lg:mr-[50rem]">
-                <FaArrowLeft />
-              </button>
-              <button onClick={() => Changer(1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded mt-4">
-                <FaArrowRight />
-              </button>
+            <div className="relative top-[10vh] p-4 lg:w-[80vw] w-[90vw] m-auto bg-white bg-opacity-75 border rounded-lg text-center z-50 mb-[10vh]" id="eventer">
+            <div className="lg:flex lg:justify-between">
+              <div className="lg:w-[40%] w-full mb-4 lg:mb-0">
+                <img src={selectedEvent.img_url} alt={selectedEvent.title} className="rounded-[10px] lg:w-full lg:h-auto object-cover" />
+              </div>
+
+              <div className="lg:w-[55%] w-full lg:ml-8 flex flex-col justify-between">
+                <div className="flex justify-between items-center">
+                  <button onClick={() => Changer(-1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded">
+                    <FaArrowLeft />
+                  </button>
+                  
+                  <h2 className="text-2xl font-bold">{selectedEvent.title}</h2>
+                  
+                  <button onClick={() => Changer(1)} className="bg-[#EBBA00] text-white px-4 py-2 rounded">
+                    <FaArrowRight />
+                  </button>
+                </div>
+          
+                <p className="my-8 text-lg">{selectedEvent.description}</p>
+          
+                <div className="mt-auto  mb-4">
+                  <p className="text-sm"><strong>Type:</strong> {selectedEvent.type}</p>
+                  <p className="text-sm"><strong>Location:</strong> {selectedEvent.location}</p>
+                  <p className="text-sm"><strong>Start:</strong> {selectedEvent.start.toLocaleString()}</p>
+                  <p className="text-sm"><strong>End:</strong> {selectedEvent.end.toLocaleString()}</p>
+                </div>
+              </div>
+            </div>
           </div>
           )}
         </div>
