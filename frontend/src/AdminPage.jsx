@@ -10,19 +10,29 @@ const AdminPage = () => {
     const [news, setNews] = useState({
         title: '',
         description: '',
-        location: '',
+        img_url: '',
     });
     const [galleryList, setGalleryList] = useState([]);
     const [gallery, setGallery] = useState({
-        name: '',
+        title: '',
         url: '',
         description: '',
     });
+    const [eaglesList, setEaglesList] = useState([])
+    const [eagles, setEagles] = useState({
+        name: '',
+        img_url: '',
+        description: '',
+        rank: '',
+    })
     const [eventsList, setEventsList] = useState([]);
+    const [adminList, setAdminList] = useState([]);
+    const [eagleList, setEagleList] = useState([])
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [editingNews, setEditingNews] = useState(null);
     const [editingGallery, setEditingGallery] = useState(null);
     const [editingEvent, setEditingEvent] = useState(null);
+    const [editingEagle, setEditingEagle] = useState(null);
     const [pageSize] = useState(10);
 
     // Fetch news data
@@ -38,6 +48,46 @@ const AdminPage = () => {
                         location: event.location,
                     }));
                     setNewsList(newsData);
+                } else {
+                    console.error('Failed to fetch news:', data.message);
+                }
+            })
+            .catch((err) => console.error('Error fetching news:', err));
+    }, []);
+
+    // Fetch admin data
+    useEffect(() => {
+        fetch('http://localhost:5000/api/admin')
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.success) {
+                    const adminData = data.data.map((admin) => ({
+                        id: admin._id,
+                        email: admin.email,
+                    }));
+                    setAdminList(adminData);
+                } else {
+                    console.error('Failed to fetch news:', data.message);
+                }
+            })
+            .catch((err) => console.error('Error fetching news:', err));
+    }, []);
+
+    // Fetch eagle data
+    useEffect(() => {
+        fetch('http://localhost:5000/api/eagles')
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.success) {
+                    const eagleData = data.data.map((eagle) => ({
+                        id: eagle._id,
+                        name: eagle.name,
+                        rank: eagle.rank,
+                        description: eagle.description,
+                        img_url: eagle.img_url,
+                        date: eagle.date,
+                    }));
+                    setEagleList(eagleData);
                 } else {
                     console.error('Failed to fetch news:', data.message);
                 }
@@ -123,8 +173,8 @@ const AdminPage = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const newPhoto = {
-            name: formData.get('name'),
-            url: formData.get('url'),
+            title: formData.get('name'),
+            img_url: formData.get('image-upload'),
             description: formData.get('description'),
         };
         setGallery(newPhoto);
@@ -172,6 +222,35 @@ const AdminPage = () => {
                     setEventsList(updatedEvents);
                 } else {
                     console.error('Failed to add event:', data.message);
+                }
+            })
+            .catch((err) => console.error('Error sending event:', err));
+        e.target.reset();
+    };
+
+    // Handle eagle submission
+    const handleEagleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const newEagle = {
+            name: formData.get('name'),
+            rank: formData.get('rank'),
+            description: formData.get('description'),
+            img_url: formData.get('img_url'),
+            date: formData.get('date'),
+        };
+        setEagles(newEagle);
+        fetch('http://localhost:5000/api/eagles', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newEagle),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.success) {
+                    setEventsList([...eaglesList, { ...newEagle, id: data.data._id }]);
+                } else {
+                    console.error('Failed to add eagle:', data.message);
                 }
             })
             .catch((err) => console.error('Error sending event:', err));
@@ -330,7 +409,7 @@ const AdminPage = () => {
                 )}
                 <form onSubmit={handlePhotoSubmit} className="mt-5 flex gap-2">
                     <input type="text" name="name" placeholder="Photo Name" className="p-2 border rounded" />
-                    <input type="text" name="url" placeholder="Image URL" className="p-2 border rounded" />
+                    <input type="file" id="image-upload" name="image" accept="image/*" required />
                     <input type="text" name="description" placeholder="Description" className="p-2 border rounded" />
                     <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">Submit Photo</button>
                 </form>
@@ -387,6 +466,74 @@ const AdminPage = () => {
                     <input type="text" name="img_url" placeholder="Image URL" className="p-2 border rounded" />
                     <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">Submit Event</button>
                 </form>
+            </div>
+
+            {/* Eagle Section */}
+            <div>
+                <h2 className="text-2xl font-bold mb-4">Eagles Section</h2>
+                <div className="grid grid-cols-4 gap-5">
+                
+                </div>
+                {eagleList.length > 0 ? (
+                    <div className="grid grid-cols-4 gap-5">
+                        {eagleList.map((eagle) => (
+                            <div key={eagle.id} className="border rounded-lg p-4 shadow-md bg-white">
+                                {editingEagle === eagle.id ? (
+                                    <>
+                                        <input type="text" defaultValue={eagle.name} onChange={(e) => (eagle.name = e.target.value)} className="mb-2 w-full p-2 border rounded" />
+                                        <input type="text" defaultValue={eagle.description} onChange={(e) => (eagle.description = e.target.value)} className="mb-2 w-full p-2 border rounded" />
+                                        <input type="text" defaultValue={eagle.rank} onChange={(e) => (eagle.rank = e.target.value)} className="mb-2 w-full p-2 border rounded" />
+                                        <input type="text" defaultValue={eagle.date} onChange={(e) => (eagle.date = e.target.value)} className="mb-2 w-full p-2 border rounded" />
+                                        <input type="text" defaultValue={eagle.img_url} onChange={(e) => (eagle.img_url = e.target.value)} className="mb-2 w-full p-2 border rounded" />
+                                        <button onClick={() => handleEventEditSave(eagle.id, { name: eagle.name, rank: eagle.rank, description: eagle.description, img_url: eagle.img_url })} className="bg-blue-500 text-white px-4 py-2 rounded mr-2">Save</button>
+                                        <button onClick={() => setEditingEagle(null)} className="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
+                                    </>
+                                ) : (
+                                    <>
+                                        {eagle.img_url && <img src={eagle.img_url} alt={eagle.name} className="w-full h-auto mb-2" />}
+                                        <h4 className="text-lg font-medium mb-2">{eagle.name}</h4>
+                                        <p className="mb-2"><strong>Rank: </strong> {eagle.rank}</p>
+                                        <p className="mb-2"><strong>Year Achieved: </strong> {eagle.date}</p>
+                                        <p className="mb-2">{eagle.description}</p>
+                                        <button onClick={() => setEditingEagle(eagle.id)} className="bg-yellow-500 text-white px-4 py-2 rounded">Edit</button>
+                                    </>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p>No Eagles found.</p>
+                )}
+                <form onSubmit={handleEagleSubmit} className="mt-5 flex gap-2 flex-wrap">
+                    <input type="text" name="name" placeholder="Name" className="p-2 border rounded" />
+                    <input type="text" name="rank" placeholder="Rank" className="p-2 border rounded" />
+                    <input type="text" name="date" placeholder="Date" className="p-2 border rounded" />
+                    <input type="text" name="description" placeholder="Description" className="p-2 border rounded" />
+                    <input type="text" name="img_url" placeholder="Image URL" className="p-2 border rounded" />
+                    <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">Submit Eagle</button>
+                </form>
+            </div>
+
+            {/* Admin Section */}
+            <div>
+                <h2 className="text-2xl font-bold mb-4">Admins Section</h2>
+                <div className="grid grid-cols-4 gap-5">
+                
+                </div>
+                {adminList.length > 0 ? (
+                    <div className="grid grid-cols-4 gap-5">
+                        {adminList.map((admin) => (
+                            <div key={admin.id} className="border rounded-lg p-4 shadow-md bg-white">
+                                    <>
+                                        <h4 className="text-lg font-medium mb-2">{admin.email}</h4>
+                                        <button className="bg-red-500 text-white px-4 py-2 rounded">Delete</button>
+                                    </>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p>No admins found.</p>
+                )}
             </div>
 
             <Footer />
