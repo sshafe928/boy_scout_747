@@ -5,8 +5,6 @@ import Events from '../src/components/adminComponents/Events';
 import VisitorCount from '../src/components/adminComponents/VisitorCount';
 import Photos from '../src/components/adminComponents/Gallery';
 
-// Optional: Example Converter function if you need date formatting later
-// const Converter = (dateString) => new Date(dateString).toISOString();
 
 const AdminPage = () => {
   return (
