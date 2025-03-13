@@ -17,6 +17,7 @@ const AdminLogin = () => {
       });
       const data = await res.json();
       if (data.success) {
+        localStorage.setItem('adminLoggedIn', 'true');
         navigate('/iHEID1JWLUto8s7');
       } else {
         setError(data.message || 'Invalid credentials');
