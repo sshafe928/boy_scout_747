@@ -11,21 +11,21 @@ const slides = [
         subtitle: "An adventure of a lifetime",
         bgImage: "https://downbytheriverbandb.com/wp-content/uploads//2015/02/Yellow-Sunset.jpg",
         titleColor: "text-white",
-        subtitleGradient: "from-[#A36826] to-[#0F0700]"
+        subtitleGradient: "lg:from-[#A36826] lg:to-[#0F0700]  from-white to-white"
     },
     {
         title: "SCOUTING IS",
         subtitle: "Building tomorrow's leaders",
         bgImage: "https://imagesarizona.com/wp-content/uploads/2017/06/Riding-off-into-the-Sunset.jpg",
         titleColor: "text-white",
-        subtitleGradient: "from-[#502402] to-[#150a05]"
+        subtitleGradient: "lg:from-[#502402] lg:to-[#150a05] from-white to-white"
     },
     {
         title: "SCOUTING IS",
         subtitle: "Making lasting friendships",
         bgImage: "https://images.fineartamerica.com/images-medium-large-5/golden-arizona-sunset-bryan-allen.jpg",
         titleColor: "text-amber-50",
-        subtitleGradient: "from-amber-50 to-[#351800]"
+        subtitleGradient: "lg:from-amber-50 lg:to-[#351800] from-white to-white"
     },
 ];
 
