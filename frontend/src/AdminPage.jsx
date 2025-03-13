@@ -2,16 +2,15 @@ import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Events from '../src/components/adminComponents/Events';
-
-// Optional: Example Converter function if you need date formatting later
-// const Converter = (dateString) => new Date(dateString).toISOString();
+import VisitorCount from '../src/components/adminComponents/VisitorCount';
 
 const AdminPage = () => {
   return (
     <div>
       <Header />
-      <main>
+      <main className="p-4">
         <Events />
+        <VisitorCount />
       </main>
       <Footer />
     </div>
