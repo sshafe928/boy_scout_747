@@ -14,8 +14,8 @@ const AdminPage = () => {
       <Header />
       <main className="p-4">
         <Events />
-        <VisitorCount />
         <Photos />
+        <VisitorCount />
       </main>
       <Footer />
     </div>
