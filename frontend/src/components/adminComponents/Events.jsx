@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Adder from "../adminComponents/actions/Adder"
+import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
+
+
 const Converter = (utcData) => {
   const date = new Date(utcData);
   date.setHours(date.getHours() + 7); // Adjust timezone offset as needed
@@ -16,12 +19,8 @@ const Events = () => {
         if (data.success) {
           const formatted = data.data.map((event) => ({
             title: event.title,
-            type: event.type,
-            description: event.description,
-            location: event.location,
             start: Converter(event.start),
             end: Converter(event.end),
-            img_url: event.img_url,
           }));
           formatted.sort((a, b) => new Date(a.start) - new Date(b.start));
           setFormattedEvents(formatted);
@@ -40,38 +39,21 @@ const Events = () => {
           {formattedEvents.map((event, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200"
+              className="bg-black rounded-lg h-auto shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200"
             >
-              {event.img_url && (
-                <img 
-                  src={event.img_url} 
-                  alt={event.title} 
-                  className="w-full h-48 object-cover"
-                />
-              )}
-              <div className="p-4">
-                <h2 className="text-xl font-semibold text-gray-800 mb-2">{event.title}</h2>
-                <p className="text-gray-600 mb-3">{event.description}</p>
-                <div className="space-y-1">
-                  <p className="text-sm">
-                    <strong className="text-gray-700">Type:</strong> {event.type}
-                  </p>
-                  <p className="text-sm">
-                    <strong className="text-gray-700">Location:</strong> {event.location}
-                  </p>
-                  <p className="text-sm">
-                    <strong className="text-gray-700">Start:</strong> {event.start.toLocaleString()}
-                  </p>
-                  <p className="text-sm">
-                    <strong className="text-gray-700">End:</strong> {event.end.toLocaleString()}
+              <div className="p-4 flex my-auto">
+                <div className='m-[8px]'>
+                  <h2 className="text-l font-semibold text-white mb-2">{event.title}</h2>
+                  <p className="text-xs text-white">
+                    {event.start.toLocaleString()} - {event.end.toLocaleString()}
                   </p>
                 </div>
-                <div className="mt-4 flex gap-2">
+                <div className="m-auto flex gap-2">
                   <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md transition-colors">
-                    Edit
+                    <FaEdit className="w-[2vw] h-[2vw]"/>
                   </button>
                   <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition-colors">
-                    Cancel
+                    <FaRegTrashAlt className="w-[2vw] h-[2vw]" />
                   </button>
                 </div>
               </div>
