@@ -24,7 +24,8 @@ const EaglesNest = () => {
                         day,
                         description: eagles.description,
                         rank: eagles.rank,
-                        img_url: eagles.img_url
+                        img_url: eagles.img_url,
+                        img_url_project: eagles.img_url_project,
                     };
                 });
                 setFormattedEagles(formatted);
