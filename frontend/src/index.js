@@ -10,17 +10,19 @@ import EaglesNest from './EaglesNest';
 import ResourcesPage from './ResourcesPage';
 import AdminLogin from './AdminLogin';
 import AdminPage from './AdminPage';
+import ProtectedRoute from './ProtectedRoute';
 
 const router = createBrowserRouter([
-  { path: '/', element: <Home />},
-  { path: '/calendar', element: <Calendar />},
-  { path: '/photos', element: <Photos />},
-  { path: '/news', element: <News />},
-  { path: '/eagles-nest', element: <EaglesNest/>},
-  { path: '/resources', element: <ResourcesPage />},
-  { path: '/yiVHQSLPA5z4bWJ', element: <AdminLogin />},
-  { path: '/iHEID1JWLUto8s7', element: <AdminPage />}
-])
+  { path: '/', element: <Home /> },
+  { path: '/calendar', element: <Calendar /> },
+  { path: '/photos', element: <Photos /> },
+  { path: '/news', element: <News /> },
+  { path: '/eagles-nest', element: <EaglesNest /> },
+  { path: '/resources', element: <ResourcesPage /> },
+  { path: '/yiVHQSLPA5z4bWJ', element: <AdminLogin /> },
+  { path: '/iHEID1JWLUto8s7', element: <ProtectedRoute><AdminPage /></ProtectedRoute> }
+]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

@@ -13,11 +13,11 @@ function Adder({ type }) {
                 </>
             );
 
-        case "Gallery":
+        case "photo":
             return (
                 <>
-                    <button onClick={() => setTyper("Gallery")}>Add Photo</button>
-                    {typer === "Gallery" && <GalleryAdder />}
+                    <button onClick={() => setTyper("photo")}>Add Photo</button>
+                    {typer === "photo" && <GalleryAdder />}
                 </>
             );
 
