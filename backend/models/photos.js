@@ -1,16 +1,18 @@
 const mongoose = require('mongoose');
+const photoSchema = new mongoose.Schema(
+  {
+    title: { type: String, required: true },
+    uploader: { type: String, required: true },
+    description: { type: String, required: true },
+    tags: [String],
+    uploaded_at: { type: Date, default: Date.now },
+    image_url: { type: String, required: true },
+  },
+  {
+    collection: 'Mock_Photos', 
+  }
+);
 
-// Connects the file to mongoDB and finds photos in the grid
-const photoSchema = new mongoose.Schema({
-  id: { type: String, required: true },
-  title: { type: String, required: true },
-  description: { type: String },
-  image_url: { type: String, required: true },
-  uploaded_at: { type: Date, default: Date.now },
-  tags: { type: [String] },
-  uploader: { type: String }
-}, { 
-  collection: 'Mock_Photos' 
-});
+const Photo = mongoose.models.Photo || mongoose.model('Photo', photoSchema);
 
-module.exports = mongoose.model('Photo', photoSchema);
+module.exports = Photo;

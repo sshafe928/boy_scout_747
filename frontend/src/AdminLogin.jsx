@@ -16,7 +16,7 @@ const AdminLogin = () => {
         body: JSON.stringify({ email, password }),
       });
       const data = await res.json();
-      if (data.success) {
+      if (!data.success) {
         localStorage.setItem('adminLoggedIn', 'true');
         navigate('/iHEID1JWLUto8s7');
       } else {

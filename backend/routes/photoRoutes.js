@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { getPhotos } = require('../controllers/photoController');
+const { getPhotos, updatePhoto, deletePhoto } = require('../controllers/photoController');
 
-// default route to get photos
 router.get('/', getPhotos);
+
+router.put('/:id', updatePhoto);
+
+router.delete('/:id', deletePhoto);
 
 module.exports = router;

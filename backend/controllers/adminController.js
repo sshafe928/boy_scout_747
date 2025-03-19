@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const Admin = require('../models/Admin');
+const {Admin} = require('../models/admin');
 
 const loginAdmin = async (req, res) => {
   const { email, password } = req.body;
@@ -31,5 +31,18 @@ const getAdmins = async (req, res) => {
   }
 };
 
+const deleteAdmin = async (req, res) => {
+  try {
+      const { id } = req.params;
+      const admin = await Admin.findByIdAndDelete(id);
+      if (!admin) {
+        return res.status(404).json({ success: false, message: 'Admin not found' });
+      }
+      res.json({ success: true, message: 'Admin deleted successfully' });
+  } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+  }
+};
 
-module.exports = { loginAdmin, getAdmins };
+
+module.exports = { loginAdmin, getAdmins , deleteAdmin};

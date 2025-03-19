@@ -4,7 +4,7 @@ import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
 
 const Converter = (utcData) => {
   const date = new Date(utcData);
-  date.setHours(date.getHours() + 7); // Adjust timezone offset as needed
+  date.setHours(date.getHours() + 7); 
   return date;
 };
 
@@ -19,7 +19,7 @@ const Events = () => {
       .then((data) => {
         if (data.success) {
           const formatted = data.data.map((event) => ({
-            _id: event._id, // Ensure ID is stored
+            _id: event._id, 
             title: event.title,
             start: Converter(event.start),
             end: Converter(event.end),
@@ -64,6 +64,23 @@ const Events = () => {
       .catch((err) => console.error("Error updating event:", err));
   };
 
+  const handleDelete = (eventId) => {
+    if (window.confirm("Are you sure you want to delete this event?")) {
+      fetch(`http://localhost:5000/api/events/${eventId}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            setFormattedEvents(formattedEvents.filter((event) => event._id !== eventId));
+          } else {
+            console.error("Failed to delete event:", data.message);
+          }
+        })
+        .catch((err) => console.error("Error deleting event:", err));
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       <h1 className="text-3xl font-bold text-center mb-8">Events</h1>
@@ -77,7 +94,6 @@ const Events = () => {
               <div className="p-4 flex my-auto">
                 <div className="m-[8px]">
                   {editingEventId === event._id ? (
-                    // Editable Fields
                     <>
                       <input
                         type="text"
@@ -100,7 +116,6 @@ const Events = () => {
                       </button>
                     </>
                   ) : (
-                    // Normal Display Mode
                     <>
                       <h2 className="text-l font-semibold text-white mb-2">{event.title}</h2>
                       <p className="text-xs text-white">
@@ -118,7 +133,10 @@ const Events = () => {
                       >
                         <FaEdit className="w-[2vw] h-[2vw]" />
                       </button>
-                      <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">
+                      <button
+                        onClick={() => handleDelete(event._id)}
+                        className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md"
+                      >
                         <FaRegTrashAlt className="w-[2vw] h-[2vw]" />
                       </button>
                     </>

@@ -1,8 +1,14 @@
 import { useState } from 'react';
-import { EventAdder, GalleryAdder, AdminAdder, NewsAdder, FormAdder } from "../actions/AddingFunction";
+
+import EventAdder from "../actions/EventAdder";
+import GalleryAdder from "../actions/GalleryAdder"; 
+import AdminAdder  from "../actions/AdminAdder";
+import  NewsAdder  from "../actions/NewsAdder";
+import FormAdder from '../actions/FormAdder';
+import EagleAdder from "../actions/EagleAdder"
 
 function Adder({ type }) {
-    const [typer, setTyper] = useState(null); // Initialize state
+    const [typer, setTyper] = useState(null); 
 
     switch (type) {
         case "event":
@@ -44,6 +50,13 @@ function Adder({ type }) {
                     {typer === "form" && <FormAdder />}
                 </>
             );
+        case "eagle":
+            return (
+                <>
+                    <button onClick={() => setTyper("eagle")}>Add Eagle</button>
+                    {typer === "eagle" && <EagleAdder />}
+                </>
+            )
 
         default:
             console.log(type);
