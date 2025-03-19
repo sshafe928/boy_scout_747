@@ -25,12 +25,12 @@ export default function InfoDropdown() {
                 <div className="flex flex-col border-2 border-brand-accent-brown-light p-4 text-xl bg-brand-accent-light">
                   {/* Link 1 */}
                   <div className="relative group hover:text-brand-accent-brown transition">
-                    <Link href="one.pdf">Boy Scout Permission Slip</Link>
+                    <Link to="/Activity-Consent-Form.pdf" target="_blank">Boy Scout Permission Slip</Link>
                     <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
                   </div>
                   {/* Link 2 */}
                   <div className="relative group hover:text-brand-accent-brown transition">
-                    <Link href="two.pdf">PDF 2</Link>
+                    <Link href="../">PDF 2</Link>
                     <span className="absolute left-1/4 bottom-0 w-1/2 h-[2px] bg-brand-primary-brown scale-x-0 group-hover:scale-x-100 transition-transform duration-250 ease-out origin-bottom-right group-hover:origin-bottom-left" />
                   </div>
                   {/* Link 3 */}
