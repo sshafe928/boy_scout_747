@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Adder from "../adminComponents/actions/Adder";
 
 const Admins = () => {
     const [admins, setAdmins] = useState([]);
@@ -56,7 +55,6 @@ const Admins = () => {
                             </div>
                         </div>
                     ))}
-                    <Adder type="admin" />
                 </div>
             ) : (
                 <p className="text-center text-gray-500">No admins available.</p>

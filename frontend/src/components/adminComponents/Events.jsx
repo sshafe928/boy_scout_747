@@ -4,7 +4,19 @@ import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
 
 const Converter = (utcData) => {
   const date = new Date(utcData);
-  date.setHours(date.getHours() + 7); 
+  date.setHours(date.getHours() + 7);
+  return date;
+};
+
+// Helper to format Date object to datetime-local input string
+const formatDateForInput = (date) => {
+  return date.toISOString().slice(0, 16); // Cuts off seconds and timezone
+};
+
+// Helper to adjust date back by 7 hours for consistency with Converter
+const adjustDateForSave = (dateString) => {
+  const date = new Date(dateString);
+  date.setHours(date.getHours() - 7); // Reverse the +7 from Converter
   return date;
 };
 
@@ -19,10 +31,11 @@ const Events = () => {
       .then((data) => {
         if (data.success) {
           const formatted = data.data.map((event) => ({
-            _id: event._id, 
+            _id: event._id,
             title: event.title,
             start: Converter(event.start),
             end: Converter(event.end),
+            img_url: event.img_url,
           }));
           formatted.sort((a, b) => new Date(a.start) - new Date(b.start));
           setFormattedEvents(formatted);
@@ -39,24 +52,37 @@ const Events = () => {
   };
 
   const handleChange = (e) => {
-    setEditingEvent({ ...editingEvent, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === "start" || name === "end") {
+      setEditingEvent({ ...editingEvent, [name]: new Date(value) });
+    } else {
+      setEditingEvent({ ...editingEvent, [name]: value });
+    }
   };
 
   const handleSave = () => {
+    const adjustedEvent = {
+      ...editingEvent,
+      start: adjustDateForSave(editingEvent.start),
+      end: adjustDateForSave(editingEvent.end),
+    };
+
     fetch(`http://localhost:5000/api/events/${editingEventId}`, {
-      method: "put",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(editingEvent),
+      body: JSON.stringify(adjustedEvent),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           const updatedEvents = formattedEvents.map((event) =>
-            event._id === editingEventId ? { ...editingEvent, _id: editingEventId } : event
+            event._id === editingEventId
+              ? { ...editingEvent, _id: editingEventId, start: Converter(adjustedEvent.start), end: Converter(adjustedEvent.end) }
+              : event
           );
           setFormattedEvents(updatedEvents);
           setEditingEventId(null);
-          setEditingEvent(null);
+          setEditingEvent({});
         } else {
           console.error("Failed to update event:", data.message);
         }
@@ -91,8 +117,18 @@ const Events = () => {
               key={event._id}
               className="bg-black rounded-lg h-auto shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200"
             >
+              <div className="relative">
+                {event.img_url && (
+                  <img
+                    src={event.img_url}
+                    alt={event.title}
+                    className="w-full h-48 object-cover"
+                    onError={(e) => (e.target.src = "path/to/fallback-image.jpg")}
+                  />
+                )}
+              </div>
               <div className="p-4 flex my-auto">
-                <div className="m-[8px]">
+                <div className="m-[8px] flex-1">
                   {editingEventId === event._id ? (
                     <>
                       <input
@@ -100,7 +136,29 @@ const Events = () => {
                         name="title"
                         value={editingEvent.title}
                         onChange={handleChange}
-                        className="w-full border p-2 rounded text-black"
+                        className="w-full border p-2 rounded text-black mb-2"
+                      />
+                      <input
+                        type="text"
+                        name="img_url"
+                        value={editingEvent.img_url || ""}
+                        onChange={handleChange}
+                        placeholder="Image URL"
+                        className="w-full border p-2 rounded text-black mb-2"
+                      />
+                      <input
+                        type="datetime-local"
+                        name="start"
+                        value={formatDateForInput(editingEvent.start)}
+                        onChange={handleChange}
+                        className="w-full border p-2 rounded text-black mb-2"
+                      />
+                      <input
+                        type="datetime-local"
+                        name="end"
+                        value={formatDateForInput(editingEvent.end)}
+                        onChange={handleChange}
+                        className="w-full border p-2 rounded text-black mb-2"
                       />
                       <button
                         onClick={handleSave}
