@@ -11,13 +11,13 @@ const AdminPage = () => {
   return (
     <div>
       <Header />
-      <main className="p-4">
+      <main className="p-4" style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <Events />
         <Photos />
         <Eagles />
         <Admins />
-        <VisitorCount />
         <News />
+        <VisitorCount />
 
       </main>
       <Footer />

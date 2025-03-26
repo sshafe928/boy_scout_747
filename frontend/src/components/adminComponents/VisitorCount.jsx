@@ -30,8 +30,8 @@ const VisitorCount = () => {
   }, []);
 
   return (
-    <div className="p-4 bg-white shadow rounded my-4">
-      <h2 className="text-xl font-bold mb-2">Home Page Visit Statistics</h2>
+    <div className="p-4 bg-white shadow rounded my-4 w-1/3 m-[33%]">
+      <h2 className="text-4xl font-bold mb-2 text-amber-400">Home Page Visit Statistics</h2>
       {error && <p className="text-red-500">{error}</p>}
       {stats.O8zrJPxwL_pmSGkN !== null &&
       stats.unique_home !== null &&

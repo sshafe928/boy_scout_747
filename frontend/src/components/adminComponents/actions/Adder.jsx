@@ -17,7 +17,7 @@ function Adder({ type }) {
         case "event":
             return (
                 <>
-                    <button onClick={() => handleToggle("event")}>
+                    <button className='border-black border-2 rounded p-2 bg-black text-amber-400' onClick={() => handleToggle("event")}>
                         {typer === "event" ? "Hide Event Form" : "Add Event"}
                     </button>
                     {typer === "event" && <EventAdder />}
@@ -27,7 +27,7 @@ function Adder({ type }) {
         case "photo":
             return (
                 <>
-                    <button onClick={() => handleToggle("photo")}>
+                    <button className='border-black border-2 rounded p-2  bg-black text-amber-400' onClick={() => handleToggle("photo")}>
                         {typer === "photo" ? "Hide Photo Form" : "Add Photo"}
                     </button>
                     {typer === "photo" && <GalleryAdder />}
@@ -36,7 +36,7 @@ function Adder({ type }) {
         case "new":
             return (
                 <>
-                    <button onClick={() => handleToggle("new")}>
+                    <button className='border-black border-2 rounded p-2  bg-black text-amber-400' onClick={() => handleToggle("new")}>
                         {typer === "new" ? "Hide News Form" : "Add News"}
                     </button>
                     {typer === "new" && <NewsAdder />}
@@ -46,7 +46,7 @@ function Adder({ type }) {
         case "form":
             return (
                 <>
-                    <button onClick={() => handleToggle("form")}>
+                    <button className='border-black border-2 rounded p-2  bg-black text-amber-400' onClick={() => handleToggle("form")}>
                         {typer === "form" ? "Hide Form" : "Add Form"}
                     </button>
                     {typer === "form" && <FormAdder />}
@@ -56,7 +56,7 @@ function Adder({ type }) {
         case "eagle":
             return (
                 <>
-                    <button onClick={() => handleToggle("eagle")}>
+                    <button className='border-black border-2 rounded p-2  bg-black text-amber-400' onClick={() => handleToggle("eagle")}>
                         {typer === "eagle" ? "Hide Eagle form" : "Add Eagle"}
                     </button>
                     {typer === "eagle" && <EagleAdder />}
