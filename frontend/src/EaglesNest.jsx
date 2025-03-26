@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import FloatingCarousel from './components/FloatingCarousel';
+import Carousel from './components/Carousel';
 
 const EaglesNest = () => {
     const [formattedEagles, setFormattedEagles] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         fetch('http://localhost:5000/api/eagles')
         .then((res) => res.json())
         .then((data) => {
             if (data.success) {
+                console.log(data)
                 const formatted = data.data.map((eagles) => {
                     const date = new Date(eagles.date);
                     const year = date.getFullYear();
@@ -29,28 +31,39 @@ const EaglesNest = () => {
                     };
                 });
                 setFormattedEagles(formatted);
-                console.log(formattedEagles)
             }
         })
         .catch(error => console.error('Error fetching news:', error));
-    }, [formattedEagles]);
+    }, []);
+
+    const handleSlideChange = (index) => {
+        setCurrentIndex(index);
+    };
+
+    
+
     return (
         <>
             <Header/>
-            <main className="min-h-screen w-full p-16" style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+            <main className="min-h-screen flex flex-col gap-6 w-full p-16" style={{backgroundImage: 'url(https://res.cloudinary.com/dmrevelyc/image/upload/v1740607699/Animated_Shape_3_vagk64.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
                 {/* Eagle Scout Spotlight */}
                 <div className="bg-transparent lg:bg-brand-primary-gold text-white font-Tienne flex flex-col p-8">
                     <div className="hidden lg:flex gap-6 justify-around">
-                        <div className="h-24 w-1/3 bg-brand-accent-light">
+                        <div className="bg-brand-accent-light p-4">
                             {/* News Event for Eagle */}
+                            {formattedEagles.length > 0 && (
+                                <img src={formattedEagles[currentIndex]?.img_url_project} alt={formattedEagles[currentIndex]?.name} className='max-w-80'/>
+                            )}
                         </div>
-                        <div className="w-2/3 text-white ">
+                        <div className="w-2/3 text-white">
                             {/* Eagle Desc */}
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, placeat blanditiis. Nemo, necessitatibus dolorem. Quae, inventore! Neque sed omnis laudantium enim perspiciatis id fugiat. Unde eius consequuntur molestias quidem animi!
+                            {formattedEagles.length > 0 && (
+                                <p>{formattedEagles[currentIndex]?.description}</p>
+                            )}
                         </div>
                     </div>
-                    <div className="flex">
-                        <FloatingCarousel carouselImages={formattedEagles} />
+                    <div className="flex justify-center">
+                        <Carousel carouselImages={formattedEagles} onSlideChange={handleSlideChange} />
                     </div>
                     
                 </div>
