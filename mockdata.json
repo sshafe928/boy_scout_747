@@ -1,114 +1,122 @@
 [
-{
+    {
     "id": 1,
-    "title": "Weekly Troop Meeting",
-    "date": "2025-01-08",
-    "time": "18:30",
-    "location": "Scout Hut, 123 Main St",
-    "description": "Regular troop meeting. Wear Class A uniforms. Bring your handbook and any completed requirements.",
-    "type": "Meeting"
-},
-{
+    "title": "Silver Beaver Award",
+    "description": "Congratulate Scoutmaster Doug Ullrich on getting this year’s Silver Beaver Award.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/silver-beaver-award.jpg"
+    },
+    {
     "id": 2,
-    "title": "Winter Camping Trip",
-    "date": "2025-01-17",
-    "endDate": "2025-01-19",
-    "time": "16:00",
-    "location": "Frostwood Campground",
-    "description": "Weekend winter camping trip. Bring your cold-weather gear, Class B uniforms, and a positive attitude! Parents are welcome to join.",
-    "type": "Camping"
-},
-{
+    "title": "2025 Food Drive",
+    "description": "Both Troop 747 and 3747 worked together to collect nearly 900 pounds of food during their food drive this year.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/food-drive.jpg"
+    },
+    {
     "id": 3,
-    "title": "Community Service: Food Drive",
-    "date": "2025-01-25",
-    "time": "09:00",
-    "location": "Local Food Bank, 789 Oak St",
-    "description": "Help organize and distribute food for those in need. Wear Class B uniforms and bring a reusable water bottle.",
-    "type": "Service"
-},
-{
+    "title": "Cub Scout Crossover",
+    "description": "The Fall 2024 semester’s crossover went great, bridging in 3 new scouts from Cub Scout Pack 276.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/cub-scout-crossover.jpg"
+    },
+    {
     "id": 4,
-    "title": "Merit Badge Workshop",
-    "date": "2025-02-01",
-    "time": "10:00",
-    "location": "Scout Hut, 123 Main St",
-    "description": "Work on merit badges with guest instructors. Bring your merit badge worksheets and any required materials.",
-    "type": "Workshop"
-},
-{
+    "title": "Veterans’ Day Parade",
+    "description": "Troop 747 and 3747 were welcomed onto the Legionnaires float this year during the Veterans’ Day parade.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/veterans-day-parade.jpg"
+    },
+    {
     "id": 5,
-    "title": "Eagle Scout Court of Honor",
-    "date": "2025-02-15",
-    "time": "19:00",
-    "location": "Community Center, 456 Elm St",
-    "description": "Celebrate the achievements of our newest Eagle Scouts. Families and friends are welcome. Dress formally.",
-    "type": "Ceremony"
-},
-{
+    "title": "Bench",
+    "description": "Troop 747 and 3747 worked together on a service project to make and install a bench on a local trail.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/bench-project.jpg"
+    },
+    {
     "id": 6,
-    "title": "Spring Camp Planning Meeting",
-    "date": "2025-03-05",
-    "time": "18:30",
-    "location": "Scout Hut, 123 Main St",
-    "description": "Planning meeting for the upcoming spring camp. Parents and scouts should attend to discuss logistics and preparations.",
-    "type": "Meeting"
-},
-{
+    "title": "Leadership Retreat",
+    "description": "This year’s leadership retreat went great as all of our new leaders learned valuable skills through lectures and fun games.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/leadership-retreat.jpg"
+    },
+    {
     "id": 7,
-    "title": "Spring Camping Adventure",
-    "date": "2025-03-21",
-    "endDate": "2025-03-23",
-    "time": "14:00",
-    "location": "Sunny Meadows Campground",
-    "description": "Spring camping trip with hiking, fishing, and outdoor skills training. Bring your camping gear and Class B uniforms.",
-    "type": "Camping"
-},
-{
+    "title": "NOAC 2024",
+    "description": "For this year’s National Order of the Arrow Conference, Troop 747’s Noah Schaffer represented our lodge mascot, Manny the Antelope.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/noac-2024.jpg"
+    },
+    {
     "id": 8,
-    "title": "Scout-O-Rama",
-    "date": "2025-04-12",
-    "time": "10:00",
-    "location": "City Park, 101 Scout Way",
-    "description": "Annual Scout-O-Rama event! Showcase scouting skills and participate in fun activities. Open to the public.",
-    "type": "Event"
-},
-{
+    "title": "Camp Wehinahpay",
+    "description": "Troop 747 did an outstanding Color Guard Ceremony at Camp Wehinahpay today.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/camp-wehinahpay.jpg"
+    },
+    {
     "id": 9,
-    "title": "Memorial Day Flag Placement",
-    "date": "2025-05-24",
-    "time": "08:00",
-    "location": "Veterans Cemetery, 555 Patriot Ave",
-    "description": "Honor fallen heroes by placing flags at their gravesites. Wear Class A uniforms and bring work gloves.",
-    "type": "Service"
-},
-{
+    "title": "Camp Geronimo",
+    "description": "Troop 747 is rocking summer camp at Geronimo this year.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/camp-geronimo.jpg"
+    },
+    {
     "id": 10,
-    "title": "Summer Camp Prep Meeting",
-    "date": "2025-06-04",
-    "time": "18:30",
-    "location": "Scout Hut, 123 Main St",
-    "description": "Final meeting to prepare for summer camp. Parents and scouts must attend to review packing lists and schedules.",
-    "type": "Meeting"
-},
-{
+    "title": "Visit From the GDP",
+    "description": "For tonight’s meeting, the troop was visited by three officers from the Glendale Police Department.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/glendale-police-visit.jpg"
+    },
+    {
     "id": 11,
-    "title": "Summer Camp",
-    "date": "2025-06-21",
-    "endDate": "2025-06-28",
-    "time": "08:00",
-    "location": "Lakeview Scout Reservation",
-    "description": "Week-long summer camp with activities like swimming, archery, and merit badge classes. Bring all required gear and a positive attitude!",
-    "type": "Camping"
-},
-{
+    "title": "Backpacking Campout pt.2",
+    "description": "This weekend the troop went on a backpacking campout.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/backpacking-campout-2.jpg"
+    },
+    {
     "id": 12,
-    "title": "4th of July Parade",
-    "date": "2025-07-04",
-    "time": "09:00",
-    "location": "Downtown Main St",
-    "description": "March in the annual 4th of July parade. Wear Class A uniforms and bring plenty of water.",
-    "type": "Event"
-}
+    "title": "Backpacking Campout pt.1",
+    "description": "The troop was prepared for their backpacking campout this weekend. For many of them, it was their first time backpacking.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/backpacking-campout-1.jpg"
+    },
+    {
+    "id": 13,
+    "title": "Plane Show",
+    "description": "The troop attended this year’s plane show and had a blast.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/plane-show.jpg"
+    },
+    {
+    "id": 14,
+    "title": "Tower Building",
+    "description": "This week’s meeting focused on team building by seeing which patrol could build the tallest tower in the given time.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/tower-building.jpg"
+    },
+    {
+    "id": 15,
+    "title": "Winter Campout",
+    "description": "This year’s winter campout went great, ending with scouts gathered around a fire.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/winter-campout.jpg"
+    },
+    {
+    "id": 16,
+    "title": "Flag Service",
+    "description": "To honor people in the military, Troop 747 held a very large public flag service.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/flag-service.jpg"
+    },
+    {
+    "id": 17,
+    "title": "USS Iowa",
+    "description": "Over the summer, the troop spent a night on the USS Iowa, which was a unique and fun experience.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/uss-iowa.jpg"
+    },
+    {
+    "id": 18,
+    "title": "Camp Emerald Bay",
+    "description": "The troop went to Camp Emerald Bay in California for the first time this year and had a blast!",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/camp-emerald-bay.jpg"
+    },
+    {
+    "id": 19,
+    "title": "Ice Cream Eating Contest",
+    "description": "This year marked the continuation of our annual Ice Cream Eating Contest with Troop 738.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/ice-cream-eating-contest.jpg"
+    },
+    {
+    "id": 20,
+    "title": "idk yet",
+    "description":"Over the summer, the troop spent a night on the USS Iowa, which was a unique and fun experience.",
+    "image": "https://res.cloudinary.com/demo/image/upload/v1700000000/ice-cream-eating-contest.jpg"
+    }
 ]
-
