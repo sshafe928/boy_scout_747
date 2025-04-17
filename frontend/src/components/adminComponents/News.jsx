@@ -14,7 +14,7 @@ const News = () => {
   const [editingNews, setEditingNews] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/news")
+    fetch("https://troop747backend.onrender.com/api/news")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -52,7 +52,7 @@ const News = () => {
       date: Converter(editingNews.date)
     };
 
-    fetch(`http://localhost:5000/api/news/${editingNewsId}`, {
+    fetch(`https://troop747backend.onrender.com/api/news/${editingNewsId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newsToSave),
@@ -75,7 +75,7 @@ const News = () => {
 
   const handleDelete = (newsId) => {
     if (window.confirm("Are you sure you want to delete this news item?")) {
-      fetch(`http://localhost:5000/api/news/${newsId}`, {
+      fetch(`https://troop747backend.onrender.com/api/news/${newsId}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

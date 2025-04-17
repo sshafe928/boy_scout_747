@@ -8,7 +8,7 @@ const Photos = () => {
     const [editingPhoto, setEditingPhoto] = useState({});
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/photos')
+        fetch('https://troop747backend.onrender.com/api/photos')
             .then((res) => res.json())
             .then((data) => {
                 if (data.success) {
@@ -39,7 +39,7 @@ const Photos = () => {
     };
 
     const handleSave = () => {
-        fetch(`http://localhost:5000/api/photos/${editingPhotoId}`, {
+        fetch(`https://troop747backend.onrender.com/api/photos/${editingPhotoId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(editingPhoto),
@@ -62,7 +62,7 @@ const Photos = () => {
 
     const handleDelete = (photoId) => {
         if (window.confirm("Are you sure you want to delete this photo?")) {
-            fetch(`http://localhost:5000/api/photos/${photoId}`, {
+            fetch(`https://troop747backend.onrender.com/api/photos/${photoId}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

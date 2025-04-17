@@ -9,7 +9,7 @@ require('dotenv').config();
 
 const Event = require("../models/events");
 const Photo = require("../models/photos");
-const Admin = require("../models/admin");
+const Admin = require("../models/Admin");
 const News = require("../models/news");
 const Eagle = require("../models/eagles");
 

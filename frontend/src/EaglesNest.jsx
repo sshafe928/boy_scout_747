@@ -13,7 +13,7 @@ const EaglesNest = () => {
         const fetchEagles = async () => {
             try {
                 setIsLoading(true);
-                const response = await fetch('http://localhost:5000/api/eagles');
+                const response = await fetch('https://troop747backend.onrender.com/api/eagles');
                 const data = await response.json();
 
                 if (data.success) {

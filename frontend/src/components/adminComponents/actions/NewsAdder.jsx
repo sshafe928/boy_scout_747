@@ -32,7 +32,7 @@ function NewsAdder() {
             formDataToSend.append('location', formData.location);
             formDataToSend.append('date', formData.date);
 
-            const response = await fetch('http://localhost:5000/api/admin/uploadPhoto', {
+            const response = await fetch('https://troop747backend.onrender.com/api/admin/uploadPhoto', {
                 method: 'POST',
                 body: formDataToSend,
             });

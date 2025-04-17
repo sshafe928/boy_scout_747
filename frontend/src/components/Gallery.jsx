@@ -9,7 +9,7 @@ const Gallery = () => {
   var pageSize = 30; 
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/photos')
+    fetch('https://troop747backend.onrender.com/api/photos')
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

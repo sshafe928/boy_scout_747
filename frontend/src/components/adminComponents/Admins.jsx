@@ -4,7 +4,7 @@ const Admins = () => {
     const [admins, setAdmins] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/admin')
+        fetch('https://troop747backend.onrender.com/api/admin')
             .then((res) => res.json())
             .then((data) => {
                 if (data.success) {
@@ -18,7 +18,7 @@ const Admins = () => {
 
     const deleteAdmin = (adminId) => {
         if (window.confirm('Are you sure you want to delete this admin?')) {
-            fetch(`http://localhost:5000/api/admin/deleteAdmin/${adminId}`, {
+            fetch(`https://troop747backend.onrender.com/api/admin/deleteAdmin/${adminId}`, {
                 method: 'DELETE',
             })
                 .then((res) => res.json())

@@ -12,7 +12,7 @@ const NewsPage = () => {
     const [displayedData, setDisplayedData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/news')
+        fetch('https://troop747backend.onrender.com/api/news')
         .then((res) => res.json())
         .then((data) => {
             if (data.success) {

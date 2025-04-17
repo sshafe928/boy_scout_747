@@ -33,7 +33,7 @@ const HomeMain = () => {
     const [formattedEvents, setFormattedEvents] = useState([]);
     const [events, setEvents] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/api/events')
+        fetch('https://troop747backend.onrender.com/api/events')
         .then((res) => res.json())
         .then((data) => {
             if (data.success) {

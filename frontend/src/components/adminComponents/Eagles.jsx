@@ -8,7 +8,7 @@ const Eagles = () => {
   const [editingEagle, setEditingEagle] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/eagles")
+    fetch("https://troop747backend.onrender.com/api/eagles")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -30,7 +30,7 @@ const Eagles = () => {
   };
 
   const handleSave = () => {
-    fetch(`http://localhost:5000/api/eagles/${editingEagleId}`, {
+    fetch(`https://troop747backend.onrender.com/api/eagles/${editingEagleId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(editingEagle),
@@ -53,7 +53,7 @@ const Eagles = () => {
 
   const handleDelete = (eagleId) => {
     if (window.confirm("Are you sure you want to delete this Eagle Scout?")) {
-      fetch(`http://localhost:5000/api/eagles/${eagleId}`, {
+      fetch(`https://troop747backend.onrender.com/api/eagles/${eagleId}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

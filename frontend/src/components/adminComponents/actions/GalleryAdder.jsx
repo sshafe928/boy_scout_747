@@ -16,7 +16,7 @@ function GalleryAdder({ photoId }) {
 
     useEffect(() => {
         if (photoId) {
-            fetch(`http://localhost:5000/api/photos/${photoId}`)
+            fetch(`https://troop747backend.onrender.com/api/photos/${photoId}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
@@ -87,8 +87,8 @@ function GalleryAdder({ photoId }) {
 
             const response = await fetch(
                 photoId
-                    ? `http://localhost:5000/api/photos/${photoId}` 
-                    : 'http://localhost:5000/api/admin/uploadPhoto', 
+                    ? `https://troop747backend.onrender.com/api/photos/${photoId}` 
+                    : 'https://troop747backend.onrender.com/api/admin/uploadPhoto', 
                 {
                     method: photoId ? 'PUT' : 'POST',
                     body: formDataToSend,
@@ -128,7 +128,7 @@ function GalleryAdder({ photoId }) {
         if (window.confirm('Are you sure you want to delete this photo?')) {
             try {
                 setIsLoading(true);
-                const response = await fetch(`http://localhost:5000/api/photos/${photoId}`, {
+                const response = await fetch(`https://troop747backend.onrender.com/api/photos/${photoId}`, {
                     method: 'DELETE',
                 });
 

@@ -26,7 +26,7 @@ const Events = () => {
   const [editingEvent, setEditingEvent] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/events")
+    fetch("https://troop747backend.onrender.com/api/events")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -67,7 +67,7 @@ const Events = () => {
       end: adjustDateForSave(editingEvent.end),
     };
 
-    fetch(`http://localhost:5000/api/events/${editingEventId}`, {
+    fetch(`https://troop747backend.onrender.com/api/events/${editingEventId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(adjustedEvent),
@@ -92,7 +92,7 @@ const Events = () => {
 
   const handleDelete = (eventId) => {
     if (window.confirm("Are you sure you want to delete this event?")) {
-      fetch(`http://localhost:5000/api/events/${eventId}`, {
+      fetch(`https://troop747backend.onrender.com/api/events/${eventId}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
