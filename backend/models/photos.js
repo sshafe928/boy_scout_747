@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const photoSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
@@ -9,10 +10,10 @@ const photoSchema = new mongoose.Schema(
     image_url: { type: String, required: true },
   },
   {
-    collection: 'Mock_Photos', 
+    collection: 'Photos',  
   }
 );
 
 const Photo = mongoose.models.Photo || mongoose.model('Photo', photoSchema);
-
+console.log('🎯 Photo model collection name:', Photo.collection.name);
 module.exports = Photo;
