@@ -30,14 +30,11 @@ const Header = () => {
 
     // Close mobile menu when screen size changes to desktop
     useEffect(() => {
-        if (size.width > 768 && menuOpen) {
+        if (size.width > 1024 && menuOpen) {
             setMenuOpen(false);
         }
     }, [size.width, menuOpen]);
 
-    const handleSearch = () => {
-        // Add search functionality
-    };
 
     return (
         <header className="relative">
@@ -119,21 +116,6 @@ const Header = () => {
                 <div className="flex flex-col items-center gap-2 mb-4">
                     <img src={Logo} alt="logo" className="w-32 h-32 rounded-full" />
                     <h1 className="text-xl font-bold text-brand-primary-gold">TROOP 747</h1>
-                </div>
-
-                {/* Search Bar */}
-                <div className="px-4 py-2">
-                    <div className="relative flex items-center">
-                        <input
-                            type="search"
-                            name="search"
-                            id="search"
-                            placeholder="Search..."
-                            className="w-full text-white px-4 py-2 rounded-full border border-white focus:outline-none placeholder:font-Inter placeholder:text-white bg-black"
-                            onChange={(e) => handleSearch(e)}
-                        />
-                        <IoMdSearch className="absolute right-4 text-white" size={20} />
-                    </div>
                 </div>
 
                 {/* Nav Items */}
